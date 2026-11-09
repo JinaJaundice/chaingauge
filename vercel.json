@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm --prefix web install --legacy-peer-deps",
+  "buildCommand": "npm --prefix web run build",
+  "outputDirectory": "web/dist",
+  "headers": [
+    {
+      "source": "/ratings.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ]
+}

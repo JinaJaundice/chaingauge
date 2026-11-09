@@ -1,0 +1,2986 @@
+{
+ "generator": "ChainGauge",
+ "schemaVersion": 2,
+ "url": "https://chaingauge.vercel.app/",
+ "methodology": "https://chaingauge.vercel.app/#/method",
+ "asAt": "2026-08-18",
+ "disclaimer": "An assessed view of public information; a starting point for enhanced due diligence, not legal or investment advice.",
+ "factors": [
+  {
+   "id": "traceability",
+   "label": "Traceability"
+  },
+  {
+   "id": "coverage",
+   "label": "Analytics coverage"
+  },
+  {
+   "id": "illicit",
+   "label": "Illicit exposure"
+  },
+  {
+   "id": "controls",
+   "label": "Asset controls"
+  },
+  {
+   "id": "travelRule",
+   "label": "Travel Rule & identity"
+  },
+  {
+   "id": "accountability",
+   "label": "Accountability"
+  },
+  {
+   "id": "adverseMedia",
+   "label": "Adverse media"
+  }
+ ],
+ "levels": [
+  "clear",
+  "caution",
+  "elevated"
+ ],
+ "bases": [
+  "observed",
+  "no-record"
+ ],
+ "grades": [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E"
+ ],
+ "profile": {
+  "product": "balanced",
+  "customer": "mixed",
+  "label": "Balanced / Mixed",
+  "weights": {
+   "traceability": 0.19999999999999998,
+   "coverage": 0.18181818181818182,
+   "illicit": 0.1636363636363636,
+   "controls": 0.13636363636363635,
+   "travelRule": 0.10909090909090907,
+   "accountability": 0.11818181818181818,
+   "adverseMedia": 0.09090909090909091
+  },
+  "note": "Every score, grade and band below is produced by this profile alone. A chain that is acceptable for custody is not automatically acceptable for payments, and the grade moves with the product. Reweight the raw factor levels yourself if your deployment differs."
+ },
+ "chains": [
+  {
+   "id": "bitcoin",
+   "name": "Bitcoin",
+   "ticker": "BTC",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Fully transparent UTXO ledger; CoinJoin and mixers exist but the base chain is deterministic and widely traced.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "The gold standard for coverage; supported by Chainalysis, TRM and Elliptic with the deepest attribution database. Notabene's registry maps 11 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Still a settlement rail for ransomware and darknet markets in absolute terms, though the illicit share of volume is under 1% and declining.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "No native freeze or clawback; the base asset cannot be frozen, though seizure at custody / VASP level is routine.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 11 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "No operator to serve, but mature, well-understood governance and settled regulatory treatment; no sanctions nexus.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No operator exists to attract conduct reporting; coverage of criminal use of the network is measured under illicit exposure rather than here.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 15,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Supported by every major exchange, custodian and payment processor, and the asset most firms already have a policy for."
+   },
+   "residual": "Nothing on-chain can be frozen, so every control is at the custody or venue edge, and a transfer that leaves a hosted wallet leaves your reach entirely."
+  },
+  {
+   "id": "ethereum",
+   "name": "Ethereum",
+   "ticker": "ETH",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent account ledger; the sanctioned Tornado Cash mixer is the main obfuscation vector and is itself screened.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Full coverage and attribution across all major providers. Notabene's registry maps 1596 Elliptic asset identifiers here, the deepest tier.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Carries scams, exploits and mixer flows including the $1.5bn Bybit hack, but the activity is visible and the illicit share of volume is low.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "The deepest controllable-asset tooling: ERC-3643 permissioned tokens plus USDC / USDT freeze, with a long enforcement record.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry with 1752 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation, clear regulatory treatment, no sanctions nexus.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the foundation or client teams; coverage of mixer abuse concerns tools on the chain rather than its stewards.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 8,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "The default rail for tokenised funds and regulated stablecoins, and where most institutional issuance lands."
+   },
+   "residual": "The controllable-token tooling only helps for assets that use it. Native ETH and the long tail of tokens have no issuer to call, and mixer exposure keeps arriving through them."
+  },
+  {
+   "id": "base",
+   "name": "Base",
+   "ticker": "BASE",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup; transaction data is posted to Ethereum and fully traceable.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major providers alongside the other large EVM L2s. Notabene's registry maps 28 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Lower illicit concentration than the large L1s; a newer, consumer-facing L2.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards; native USDC issuance. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with Stage 0 on L2BEAT, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry with 74 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Operated by Coinbase, a regulated, publicly-listed US company; highly reachable.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 7,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Retail and fintech payment flows, and a common first choice for firms wanting an Ethereum L2 with a regulated operator."
+   },
+   "residual": "The rollup contracts are instantly upgradeable by the operator and the sequencer is a single party, so the controls you rely on sit on a platform whose rules can change without a notice period."
+  },
+  {
+   "id": "arbitrum",
+   "name": "Arbitrum One",
+   "ticker": "ARB",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 42 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Modest illicit concentration relative to volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards and native USDC. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with a Security Council that can upgrade immediately, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry with 62 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation and Security Council; reachable governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 7,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "A large share of DeFi activity a firm will see in customer transaction data, plus tokenised fund share classes."
+   },
+   "residual": "A Security Council can upgrade the rollup immediately, so the exit window a user would rely on depends on that council behaving. The financial-crime tooling is Ethereum's; the platform under it is not yet fully independent of its operators."
+  },
+  {
+   "id": "optimism",
+   "name": "OP Mainnet",
+   "ticker": "OP",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup; data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 16 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Modest illicit concentration relative to volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards and native USDC. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry with 21 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 7,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Common in customer flows through the OP Stack ecosystem, and carries tokenised fund share classes."
+   },
+   "residual": "Same shape as the other OP Stack rollups: one sequencer orders transactions and the contracts remain upgradeable, so availability of your on-chain control is an operator dependency."
+  },
+  {
+   "id": "polygon",
+   "name": "Polygon PoS",
+   "ticker": "POL",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 156 Elliptic asset identifiers here, the deepest tier.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Carries scam and phishing volume common to low-fee EVM chains, though visible and traceable.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards; native USDC and USDT with freeze.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry with 168 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named labs and foundation; reachable governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 8,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Widely used for tokenised funds and enterprise pilots, and present in most exchange and custody line-ups."
+   },
+   "residual": "Heavy use in consumer and gaming flows means large volumes of low-value transfers, which is the pattern that hides structuring best."
+  },
+  {
+   "id": "avalanche",
+   "name": "Avalanche C-Chain",
+   "ticker": "AVAX",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger on the C-Chain.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 30 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Some scam and bridge-related illicit flow, but low concentration relative to volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards; subnets allow issuer-defined permissioning.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry with 40 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named labs and foundation; reachable governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 8,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Institutional pilots and tokenised funds, with subnets used for permissioned deployments."
+   },
+   "residual": "Subnets carry their own rules and their own validator sets, so due diligence on the C-Chain does not carry across to a subnet a counterparty may be using."
+  },
+  {
+   "id": "xrpl",
+   "name": "XRP Ledger",
+   "ticker": "XRP",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent payment ledger with fully public transaction history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 11 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Some scam and payment-fraud exposure, but low concentration relative to volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Native issued-asset controls: trust-line freeze plus the on-ledger Clawback amendment for issuer recovery.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 11 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named company and foundation; reachable governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "The SEC's case against the operator drew years of coverage but concerned registration rather than financial crime, and it is resolved.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 8,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Cross-border payment corridors and a long-standing presence in exchange and custody line-ups."
+   },
+   "residual": "The ledger is clean and the amendment process is orderly, but a large share of real activity is at the gateway and exchange edge, where your counterparty risk sits."
+  },
+  {
+   "id": "stellar",
+   "name": "Stellar",
+   "ticker": "XLM",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent payment ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 13 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration; largely payments and remittance flow.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Native authorization flags, asset freeze and clawback for issued assets.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 17 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 0,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Remittance and payment corridors, and tokenised money market funds including Franklin Templeton's."
+   },
+   "residual": "The asset controls are strong and the chain is transparent. The exposure is at the anchors: fiat on and off ramps are third parties whose own standards vary, and they are outside anything this rating covers."
+  },
+  {
+   "id": "tron",
+   "name": "Tron",
+   "ticker": "TRX",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-11-02",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM-compatible ledger; fully traceable.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 27 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "elevated",
+     "rationale": "The preferred rail for illicit stablecoin activity: 3,506 USDT addresses blacklisted across 2025 against Ethereum's 657, and a central role in sanctioned and scam flows.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Strongest freeze-and-seize record: Tether and the TRON / TRM T3 unit have frozen hundreds of millions of USDT tied to illicit activity.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with 28 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "An identifiable founder and a named DAO, but no regulated operating entity behind the network. The SEC charged Justin Sun and three associated companies in 2023 over unregistered offers of TRX and BTT and wash trading; in March 2026 it settled the wash-trading claim for a $10m penalty against one company and dismissed all claims against Sun and both foundations with prejudice.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "elevated",
+     "rationale": "The founder has sat in sustained adverse reporting since the SEC's 2023 fraud and wash-trading suit, and the 2026 resolution, in which the claims were dismissed and one company paid a $10m penalty, drew further coverage of its own.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 46,
+    "grade": "D",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "The single largest USDT settlement rail, so it appears in payment and remittance flows whether or not a firm chose it."
+   },
+   "residual": "The freeze record is the strongest here and it is also reactive: value moves first and is frozen afterwards, which makes it a recovery mechanism, arriving after the fact."
+  },
+  {
+   "id": "solana",
+   "name": "Solana",
+   "ticker": "SOL",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-11-02",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger; fully traceable.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Now covered by the major analytics providers. Notabene's registry maps 202 Elliptic asset identifiers here, the deepest tier.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Large volume of scams, wallet drainers and memecoin rugs, increasingly used in investment-fraud cash-out.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Token-2022 extensions give issuers native freeze and a permanent-delegate seize authority.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with 284 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Named foundation, but more concentrated stake and a history of network halts weaken settlement-finality assurance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "The 2022 collapse of the ecosystem's largest backer drew years of coverage, but the reporting concerned the exchange, and no comparable coverage attaches to the foundation or core developers today.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 20,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Large stablecoin and consumer payment volumes, and near-universal exchange support."
+   },
+   "residual": "Token Extensions give freeze and delegate powers only where an issuer chose to enable them, so the control you assume for USDC does not carry to the wider token set."
+  },
+  {
+   "id": "bnb",
+   "name": "BNB Chain",
+   "ticker": "BNB",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-11-02",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 190 Elliptic asset identifiers here, the deepest tier.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "elevated",
+     "rationale": "Disproportionate scam, rug-pull and phishing-token volume relative to legitimate use.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards; issued stablecoins support freeze.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with 276 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Validator set closely tied to Binance, which pleaded guilty in 2023 to US Bank Secrecy Act and sanctions charges and paid $4.3bn across the Department of Justice, FinCEN, OFAC and the CFTC.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Binance's 2023 guilty plea to US Bank Secrecy Act and sanctions charges, and the monitorship that followed, keep the operator in adverse reporting, though the case itself is resolved.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 32,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Very high retail transaction counts, so it turns up in customer activity even where a firm has not deployed on it."
+   },
+   "residual": "Very high transaction counts and a long tail of low-quality tokens make baselining hard, so monitoring thresholds tuned on other chains will not transfer."
+  },
+  {
+   "id": "ton",
+   "name": "TON",
+   "ticker": "TON",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-11-02",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with a public transaction record.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Coverage is growing but less deep than for the large EVM chains. Notabene lists 14 assets for TON in its Travel Rule registry, but every one of their Elliptic-coverage entries repeats the dataset's generic placeholder value, so the field gives no reading on Elliptic's depth here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "elevated",
+     "rationale": "Closely tied to the Telegram-based laundering ecosystem (guarantee platforms and scam services) that grew sharply in 2025.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Jetton issuers can build in admin controls, but freeze capability is uneven and there is little enforcement precedent.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Now listed in Notabene's Travel Rule registry, though only 14 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Named foundation, but the close association with Telegram and its moderation posture is a live governance question.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Telegram's founder was charged in France in 2024 over complicity in illicit activity on the platform, and the network's closeness to Telegram keeps that reporting attached to it.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 48,
+    "grade": "D",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Consumer payments through a large messaging platform, which puts it in retail customer flows."
+   },
+   "residual": "Consumer payments inside a messaging platform put a large share of activity behind an interface most monitoring never sees, even though the ledger itself is readable."
+  },
+  {
+   "id": "litecoin",
+   "name": "Litecoin",
+   "ticker": "LTC",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "caution",
+     "rationale": "Transparent by default, but optional MimbleWimble Extension Blocks (MWEB) add confidential transfers that analytics cannot follow.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Transparent Litecoin is covered by the major providers; MWEB activity is not. Notabene's registry maps 2 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Some darknet and ransomware use; lower absolute volume than Bitcoin.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "No native freeze or clawback on the base asset.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation; mature, well-understood protocol.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 25,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Listed almost everywhere, so it appears in exchange and custody scope by default, with no choice made."
+   },
+   "residual": "Optional privacy through MWEB extension blocks exists on the chain, so a transfer can be less traceable than the base ledger suggests."
+  },
+  {
+   "id": "hedera",
+   "name": "Hedera",
+   "ticker": "HBAR",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent public ledger with a full public transaction record.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered less deeply than the large L1s; attribution tooling is thinner. Notabene's registry maps 10 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration; largely enterprise and institutional use.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Hedera Token Service supports native KYC flags, freeze and wipe for issued tokens.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 10 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Governed by a named council of ~30 enterprises; highly reachable.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 15,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Enterprise and tokenisation pilots, usually reaching a firm through a corporate client, ahead of any retail product."
+   },
+   "residual": "Council governance is orderly and named, and it is also a small group. Concentration of that kind is a different question from the transparency the ratings measure."
+  },
+  {
+   "id": "cardano",
+   "name": "Cardano",
+   "ticker": "ADA",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent eUTXO ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered less deeply than the large L1s; attribution tooling is thinner. Notabene's registry maps 9 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration relative to volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Native tokens exist but issuer freeze / permissioning is less standardised and has little enforcement precedent.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 14 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation and development entities; published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Broadly listed, so it sits inside most exchange and custody perimeters."
+   },
+   "residual": "Broad listing means it is in scope by default at most firms, while its own tooling and analytics depth lag the chains carrying comparable value."
+  },
+  {
+   "id": "aptos",
+   "name": "Aptos",
+   "ticker": "APT",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "A newer Move chain; coverage exists but attribution is thinner than the large chains. Notabene's registry maps 7 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "The Move fungible-asset standard supports freeze, but tooling and precedent are nascent.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 11 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Tokenised fund share classes and growing stablecoin issuance, mostly reaching firms through asset managers."
+   },
+   "residual": "A newer execution model means analytics attribution is thinner than the value now settling on it, and the gap is widening."
+  },
+  {
+   "id": "sui",
+   "name": "Sui",
+   "ticker": "SUI",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent object-model ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "A newer Move chain; coverage is thinner than for the large chains. Notabene's registry maps 8 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Issuer controls are possible but tooling and precedent are nascent.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with 25 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation and development company.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Consumer and DeFi activity with growing stablecoin supply; more likely a listing question than a deployment one."
+   },
+   "residual": "The object model does not map cleanly onto address-level tracing, so provider coverage exists without matching the depth available on account-based chains."
+  },
+  {
+   "id": "near",
+   "name": "NEAR",
+   "ticker": "NEAR",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent sharded ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Coverage exists but is thinner than for the largest chains. Notabene's registry maps 18 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Issuer controls are possible but uneven and lightly used.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with 21 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Mostly a listing and custody scope question; regulated firms rarely deploy on it."
+   },
+   "residual": "Account abstraction and named accounts complicate the address-level assumptions most screening is built on."
+  },
+  {
+   "id": "cosmos",
+   "name": "Cosmos Hub",
+   "ticker": "ATOM",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Each zone is a transparent ledger, though cross-zone IBC flows are harder to follow across zones.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Coverage across the many app-chains is uneven and cross-chain attribution is harder. Notabene's registry maps 5 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "IBC cross-chain transfers add a laundering vector that analytics handle unevenly.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Asset controls depend on each app-chain and are not standardised.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 5 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named hub foundation, but a sprawling set of independently governed app-chains.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 35,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Reached indirectly through the app-chains and bridges that settle to it, which is what makes it hard to scope."
+   },
+   "residual": "Value arrives through IBC from app-chains with their own rules, so the perimeter is the connected set, wider than the hub, and that set changes without notice."
+  },
+  {
+   "id": "polkadot",
+   "name": "Polkadot",
+   "ticker": "DOT",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent relay chain and parachains with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Coverage across parachains is uneven; attribution is thinner than the largest chains. Notabene's registry maps 2 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Asset controls depend on each parachain and are not standardised.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Listing and custody scope; parachain activity is where the tracing difficulty sits."
+   },
+   "residual": "Parachains each carry their own risk profile and their own governance, and cross-chain messaging makes a hop hard to attribute to any one of them."
+  },
+  {
+   "id": "algorand",
+   "name": "Algorand",
+   "ticker": "ALGO",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered less deeply than the largest chains. Notabene's registry maps 5 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Standard Algorand assets support native freeze and clawback by the issuer.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 5 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 15,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Tokenisation and central bank pilots, usually arriving through a partner before any customer."
+   },
+   "residual": "Asset freeze and clawback exist only where the issuer configured them at creation, which cannot be added afterwards."
+  },
+  {
+   "id": "tezos",
+   "name": "Tezos",
+   "ticker": "XTZ",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered less deeply than the largest chains. Notabene's registry maps 10 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "FA2 tokens can carry controls, but this is uneven and lightly used.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 10 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation and on-chain governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Tokenised securities in a handful of European issuances; small but regulated-adjacent."
+   },
+   "residual": "Small issuance volume means little precedent for enforcement, so there is no track record to rely on when something goes wrong."
+  },
+  {
+   "id": "icp",
+   "name": "Internet Computer",
+   "ticker": "ICP",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "caution",
+     "rationale": "The canister-based state model does not expose a standard public transaction graph, making tracing harder.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Limited coverage by the major analytics providers. Notabene's registry maps 4 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Controls depend on how each canister is written; not standardised.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 4 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 31,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "niche",
+    "where": "Rarely encountered outside listing decisions; almost no regulated-firm deployment footprint."
+   },
+   "residual": "Canister state is not readable in the way an account ledger is, so what can be traced depends on what each canister chose to expose."
+  },
+  {
+   "id": "injective",
+   "name": "Injective",
+   "ticker": "INJ",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered less deeply than the largest chains. Notabene's registry maps 1 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Controls depend on the chain modules and are not standardised.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named development company with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Derivatives and tokenised asset experiments; reaches most firms as a listing question."
+   },
+   "residual": "Derivatives activity concentrates margined positions and rapid position turnover, a pattern that produces high transfer volumes with little underlying economic substance."
+  },
+  {
+   "id": "sei",
+   "name": "Sei",
+   "ticker": "SEI",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "A newer chain; coverage is thinner than the largest chains. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Controls depend on the chain modules and are not standardised.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 3 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Trading-focused L1 with growing stablecoin supply; largely a listing question today."
+   },
+   "residual": "Fast finality and a trading-led user base produce transaction volumes that make anomaly detection harder to tune than the chain's size suggests."
+  },
+  {
+   "id": "kaspa",
+   "name": "Kaspa",
+   "ticker": "KAS",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent UTXO BlockDAG with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Thin coverage by the major analytics providers. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Growing mining-driven ecosystem with limited monitoring maturity.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "No native asset controls.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "No foundation or reachable operator; community-run.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 35,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "niche",
+    "where": "Almost no institutional footprint; matters mainly because the analytics coverage gap makes it awkward to screen."
+   },
+   "residual": "The blockDAG structure has no direct analogue in standard tracing tools, so coverage is a structural problem, beyond provider priority."
+  },
+  {
+   "id": "ethereumclassic",
+   "name": "Ethereum Classic",
+   "ticker": "ETC",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered but less deeply than mainstream EVM chains. Notabene's registry maps 2 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Some illicit use; smaller absolute volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "No native asset controls on the base chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Repeated 51% attacks weaken settlement-finality assurance; no single accountable operator.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 35,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "niche",
+    "where": "Listed on some venues, otherwise rarely encountered; carried mostly as legacy scope."
+   },
+   "residual": "Low hash rate has produced repeated deep reorganisations on this chain, so settlement finality cannot be assumed at the depths used elsewhere."
+  },
+  {
+   "id": "bitcoincash",
+   "name": "Bitcoin Cash",
+   "ticker": "BCH",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "caution",
+     "rationale": "Transparent by default, but optional CashFusion coinjoin obscures some transaction flows.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 2 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Some darknet and scam use; lower absolute volume than Bitcoin.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "No native freeze or clawback on the base asset.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Mature, well-understood protocol; no sanctions nexus.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 25,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Broadly listed, so it falls inside exchange and custody scope by default."
+   },
+   "residual": "CashFusion offers optional coinjoin-style mixing, so a transfer can be materially harder to follow than the transparent base ledger implies."
+  },
+  {
+   "id": "dogecoin",
+   "name": "Dogecoin",
+   "ticker": "DOGE",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent UTXO ledger with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "clear",
+     "rationale": "Covered by the major analytics providers. Notabene's registry maps 2 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Attracts scam, giveaway-fraud and pump activity, though transparent and traceable.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "No native asset controls.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Governance is informal and development is thin, though the protocol is well understood.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Very widely listed and held retail, so it shows up in customer holdings whatever the firm's own strategy."
+   },
+   "residual": "Very widely held with no issuer and no controls, so exposure arrives through customer holdings, with no firm choosing to support it."
+  },
+  {
+   "id": "linea",
+   "name": "Linea",
+   "ticker": "LINEA",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent zk-rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but attribution is thinner than for the largest L2s. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards; native USDC. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 4 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Operated by Consensys, a named company.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 16,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "An Ethereum L2 backed by a large wallet provider; growing but not yet a common deployment target."
+   },
+   "residual": "A validity rollup still run by its operator: the sequencer is centralised and the contracts are upgradeable, so the control surface depends on that operator continuing to behave."
+  },
+  {
+   "id": "zksync",
+   "name": "zkSync Era",
+   "ticker": "ZK",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent zk-rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but attribution is thinner than for the largest L2s. Notabene's registry maps 5 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards; native USDC. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 5 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named development company.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 16,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "A validity rollup with real activity; more often a listing and screening question than a chosen rail."
+   },
+   "residual": "The proof system removes the fraud-window question and not the governance one, since upgrade permissions still sit with the operating entity."
+  },
+  {
+   "id": "starknet",
+   "name": "Starknet",
+   "ticker": "STRK",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent zk-rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "The non-EVM Cairo VM is less supported by analytics providers. Notabene's registry maps 1 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Token controls on Cairo are less standardised than EVM equivalents.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 7 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named company and foundation.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "A validity rollup with a distinct execution model, which is where the analytics lag comes from."
+   },
+   "residual": "A non-EVM execution model on top of centralised sequencing, so both the tracing tools and the platform governance lag what the value settled there would warrant."
+  },
+  {
+   "id": "scroll",
+   "name": "Scroll",
+   "ticker": "SCR",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent zk-rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but attribution is thinner than for the largest L2s. Notabene's registry maps 1 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards; native USDC. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 16,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "An Ethereum-equivalent validity rollup; activity fell back sharply after its early peak."
+   },
+   "residual": "Activity fell well below its peak while the operator-controlled upgrade path stayed in place, so it carries the governance risk without the liquidity that justified it."
+  },
+  {
+   "id": "blast",
+   "name": "Blast",
+   "ticker": "BLAST",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but attribution is thinner than for the largest L2s. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "The yield-driven speculative ecosystem carries elevated scam and rug risk.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A newer, more centralised operator with a shorter track record.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 29,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "niche",
+    "where": "Little remaining activity after its incentive programme ended; carried for completeness."
+   },
+   "residual": "Built around a yield mechanism that routes deposits into external protocols, so funds held here carry that dependency on top of the usual rollup risks."
+  },
+  {
+   "id": "mantle",
+   "name": "Mantle",
+   "ticker": "MNT",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup with data posted to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but attribution is thinner than for the largest L2s. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Low illicit concentration to date.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 3 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Governed by a DAO treasury, with no single reachable operator.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 20,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Treasury-backed L2 with real value locked; occasionally a listing question."
+   },
+   "residual": "Treasury backing concentrates influence over the chain in one holder, which is a governance concentration; tracing is unaffected."
+  },
+  {
+   "id": "ronin",
+   "name": "Ronin",
+   "ticker": "RON",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM sidechain with public history.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but attribution is thinner than for the largest chains. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "elevated",
+     "rationale": "Site of the $600m Ronin bridge hack by the DPRK Lazarus Group in 2022, one of the largest ever, with the exploiter's address OFAC-sanctioned.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 8 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named operator, but the concentrated validator set was the cause of the 2022 bridge hack.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "The 2022 Lazarus Group theft keeps the network in sanctions-related reporting, though the operator was the victim and the recovery involved law enforcement cooperation.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 41,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "niche",
+    "where": "A gaming chain, relevant mainly as the site of a major state-actor theft; firms rarely use the rail."
+   },
+   "residual": "The bridge remains the point of failure that produced the largest state-sponsored theft on record, and a bridge is a design feature here, built in from the start."
+  },
+  {
+   "id": "zcash",
+   "name": "Zcash",
+   "ticker": "ZEC",
+   "category": "privacy",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "elevated",
+     "rationale": "The zk-SNARK shielded pool defeats transaction tracing; privacy is opt-in and viewing keys allow selective disclosure, but cannot be assumed.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Transparent Zcash is traceable and covered; shielded transactions are not. Notabene's registry maps 1 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Lower illicit volume than Monero, but its AEC status attracts sanctions and delisting risk.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "elevated",
+     "rationale": "No issuer freeze or clawback; shielded assets cannot be constrained.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "Named company and foundation exist, but licensed EU venues face an anonymity-enhancing-asset prohibition from 2027.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Recurs in privacy-coin delisting decisions and the reporting around them, though coverage of the project's own operators is limited.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 67,
+    "grade": "E",
+    "band": "high-risk"
+   },
+   "exposure": {
+    "tier": "restricted",
+    "where": "Met as an exclusion. Several exchanges have delisted it and the EU restricts anonymity-enhancing assets from 2027."
+   },
+   "residual": "Shielded pool usage has grown, so the share of activity that cannot be traced is rising, and transparent-address history does not carry into it."
+  },
+  {
+   "id": "dash",
+   "name": "Dash",
+   "ticker": "DASH",
+   "category": "privacy",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "elevated",
+     "rationale": "The optional PrivateSend coinjoin obscures flows and Dash is treated as an anonymity-enhancing asset, though its privacy is weaker than Monero's and Dash disputes the label.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Transparent Dash is traceable and covered; PrivateSend-mixed transactions are much harder. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Implicated in laundering, drug-trafficking and fraud investigations that exploit PrivateSend.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "elevated",
+     "rationale": "No issuer freeze or clawback.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A masternode DAO exists, but exchanges have delisted it as a privacy coin under AEC pressure.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Removed from several regulated venues as a privacy coin, which the operator publicly contests, and the delisting coverage recurs.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 67,
+    "grade": "E",
+    "band": "high-risk"
+   },
+   "exposure": {
+    "tier": "restricted",
+    "where": "Met as an exclusion, though its optional privacy features are weaker than the label suggests."
+   },
+   "residual": "The privacy label overstates the technology and understates the delisting risk, so the practical exposure is regulatory before it is technical."
+  },
+  {
+   "id": "secret",
+   "name": "Secret Network",
+   "ticker": "SCRT",
+   "category": "privacy",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-08-31",
+   "factors": {
+    "traceability": {
+     "level": "elevated",
+     "rationale": "Encrypted smart-contract state hides activity by default; analytics cannot see through it.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "elevated",
+     "rationale": "Effectively not traceable by the major providers. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "Lower volume than the major privacy coins, but confidentiality-by-default carries the same screening problem.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "elevated",
+     "rationale": "No issuer freeze or clawback over private state.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "elevated",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named foundation exists, but SCRT Labs, the primary development company, announced it would end its development and support role from 1 September 2026 regardless of governance's response, leaving continued maintenance dependent on validators and community funding rather than a clear operating entity.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "SCRT Labs' announced exit forced an emergency 75% supply dilution in August 2026 to fund a community continuance plan, and Binance delisted the token that same month; on top of that, the chain recurs in privacy-coin reporting and delisting decisions aimed at default-private assets.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 81,
+    "grade": "E",
+    "band": "high-risk"
+   },
+   "exposure": {
+    "tier": "restricted",
+    "where": "Met as an exclusion; encrypted contract state puts it outside normal screening."
+   },
+   "residual": "Encrypted contract state means even the existence of a transfer's counterparties is unavailable, so nothing downstream can be reconstructed after the fact."
+  },
+  {
+   "id": "firo",
+   "name": "Firo",
+   "ticker": "FIRO",
+   "category": "privacy",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "elevated",
+     "rationale": "The Lelantus Spark protocol hides amounts and addresses; shielded activity cannot be traced.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Transparent Firo is traceable; shielded activity is not, and coverage is thin. No third-party registry maps this chain, so nothing here is independently checkable.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "A dedicated privacy coin, subject to the same AEC delisting and sanctions pressure.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "elevated",
+     "rationale": "No issuer freeze or clawback.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "elevated",
+     "rationale": "Not listed in Notabene's Travel Rule registry, which maps 300 networks, so a sending firm may have no route to attach originator and beneficiary data for this chain.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named team exists, but the anonymity-enhancing design faces EU restriction from 2027.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Recurs in privacy-coin delisting decisions and the reporting around them.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 72,
+    "grade": "E",
+    "band": "high-risk"
+   },
+   "exposure": {
+    "tier": "restricted",
+    "where": "Met as an exclusion; very small footprint but the same regulatory treatment as the larger privacy assets."
+   },
+   "residual": "A small chain with strong privacy technology attracts a user base selected for wanting it, which concentrates the risk."
+  },
+  {
+   "id": "monero",
+   "name": "Monero",
+   "ticker": "XMR",
+   "category": "privacy",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-15",
+   "factors": {
+    "traceability": {
+     "level": "elevated",
+     "rationale": "Ring signatures, stealth addresses and confidential amounts hide every transaction by default; no reliable tracing exists.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "elevated",
+     "rationale": "No major provider has demonstrated reliable Monero tracing at scale; screening is effectively impossible. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "elevated",
+     "rationale": "A preferred settlement asset for darknet markets and ransomware precisely because it cannot be traced.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "elevated",
+     "rationale": "No issuer, no freeze, no clawback; the protocol has no control surface.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "elevated",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 1 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "No controlling entity to serve, and it is being delisted from licensed venues under AEC rules.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "elevated",
+     "rationale": "Named continuously in ransomware and darknet reporting as the preferred obfuscation asset, and repeatedly removed from regulated venues; the adverse coverage is sustained and current.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 94,
+    "grade": "E",
+    "band": "high-risk"
+   },
+   "exposure": {
+    "tier": "restricted",
+    "where": "The reference exclusion case. Widely delisted, and the chain most often named in exchange and regulator policy."
+   },
+   "residual": "There is no residual question here. Nothing about this chain can be traced, screened, attributed or frozen, and the rating is as bad as the scale allows."
+  },
+  {
+   "id": "tempo",
+   "name": "Tempo",
+   "ticker": "TEMPO",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-29",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger with public block data; nothing in the design obscures a transfer.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Reached mainnet in March 2026, so attribution depth at the major analytics providers is still building. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "No observed illicit concentration, though the chain is too young for a meaningful track record and that is a maturity point, short of a clean bill of health.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Full EVM controllable-token standards, and because the chain is issuer-neutral the freeze and seize powers of whichever regulated stablecoin you use apply directly.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 3 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "The validator set is permissioned and made up of named, regulated firms including Visa and Zodia Custody, which is the most reachable operator profile of any chain here.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 15,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "The stablecoin payment chain a payments or correspondent banking team is most likely to be asked about, because named financial institutions already run its validators."
+   },
+   "residual": "Named institutional validators make the operator reachable and also make the validator set permissioned, so the openness a public chain usually guarantees is a roadmap item, and no property today."
+  },
+  {
+   "id": "plasma",
+   "name": "Plasma",
+   "ticker": "XPL",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger; transfers are readable in the same way as any public EVM chain.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Launched in late 2025, so attribution and entity labelling are thinner than on the established stablecoin rails. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "No published chain-level illicit figure, but zero-fee transfers aimed at emerging-market remittance is the profile that attracts layering and mule activity, and stablecoins now carry the large majority of illicit volume.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "The dominant asset is USDT, and Tether's freeze powers apply here as they do on Ethereum and Tron.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 2 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named foundation exists, but governance is young and the chain's economics depend on a single issuer whose interests will not always match a bank's.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 29,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Stablecoin remittance and payment flows. Zero-fee USDT transfers make it a rail customers use whether or not a firm has chosen it."
+   },
+   "residual": "Zero-fee transfers remove the cost that normally limits transaction spam and layering, and the economics depend on one issuer continuing to fund them."
+  },
+  {
+   "id": "hyperliquid",
+   "name": "Hyperliquid",
+   "ticker": "HYPE",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-11-02",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent ledger with public order and position data; the activity is visible in full.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered less deeply than the established L1s, and the exchange-native data model does not map neatly onto standard address-level attribution. Notabene's registry maps 4 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "No published illicit concentration figure, but the venue has been named by CME and ICE to the CFTC as a manipulation and sanctions-evasion concern, which is a supervisory signal, short of measured exposure.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Control exists only through the collateral asset: Circle can freeze USDC. There is no native permissioning and no operator-level control a firm can rely on.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 4 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "elevated",
+     "rationale": "No named regulated operator to serve process on or to receive an information request, and the venue is under active scrutiny from two US market infrastructures at the CFTC.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Two US market infrastructures pressed the CFTC in 2026 to scrutinise the venue over manipulation risks, and that scrutiny remains open.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 46,
+    "grade": "D",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "mainstream",
+    "where": "Customer trading activity. It holds one of the largest concentrations of USDC of any venue outside Ethereum, so it shows up in transaction monitoring whether or not a firm services it."
+   },
+   "residual": "Everything rests on one collateral asset and one unregulated operator, so a single issuer decision or a single enforcement action changes the whole picture at once."
+  },
+  {
+   "id": "unichain",
+   "name": "Unichain",
+   "ticker": "UNI",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-28",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup posting data to Ethereum; fully readable.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Indexed by the major providers but with less attribution depth than the older L2s. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "No standout illicit concentration, but a swap-dominated activity profile is the one that shows up in layering patterns.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards and native USDC, so issuer freeze applies. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 3 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Operated by Uniswap Labs, a named US company that is reachable and already engaged with regulators.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 24,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Customer DeFi activity, ahead of any deployment choice. It took real trading volume from the established L2s during 2026."
+   },
+   "residual": "Swap-dominated activity on an operator-controlled rollup: the tracing is fine, the pattern of use is the part that generates alerts."
+  },
+  {
+   "id": "worldchain",
+   "name": "World Chain",
+   "ticker": "WLD",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-29",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent rollup posting data to Ethereum.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Covered, but with less attribution depth than the larger L2s. Notabene's registry maps 5 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "No material illicit concentration reported; the user base is consumer, with little trading.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Standard EVM controllable-token tooling, so stablecoin issuer freeze applies. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 5 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named steward organisations with published governance and a public independent listing.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "Data-protection regulators in several countries have suspended or restricted the operator's biometric collection since 2023, and the actions continue to draw reporting.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 20,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Retail customer activity, through a wallet with a very large verified user base. Notable because it is the one public chain that puts a proof-of-personhood check in the protocol."
+   },
+   "residual": "Proof of personhood is not identity, and treating it as customer due diligence because it looks like a check is the mistake this design invites."
+  },
+  {
+   "id": "celo",
+   "name": "Celo",
+   "ticker": "CELO",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-29",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent Ethereum L2 since the 2025 migration.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Indexed but with thinner attribution than the main Ethereum rails, and the L1 to L2 migration split its historic data. Notabene's registry maps 10 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "No material illicit concentration reported; usage is consumer payments.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Stablecoin issuer freeze applies, and the assets are the control surface, with the chain adding none. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with operator-held upgrade permissions, so their availability is an operator dependency, and no property of the chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 10 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Named foundation with published governance and an independent public listing.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 16,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Mobile payment and remittance corridors, mostly in emerging markets, which is where it will reach a UK or EU firm from."
+   },
+   "residual": "Local-currency stablecoins in emerging-market corridors carry the remittance and mule typologies that the chain's own transparency does nothing to address."
+  },
+  {
+   "id": "gnosis",
+   "name": "Gnosis Chain",
+   "ticker": "GNO",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-29",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "A smaller chain with correspondingly thin attribution at the major providers. Notabene's registry maps 4 Elliptic asset identifiers here.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "No material illicit concentration reported; the volume is card and payment activity.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "The main settlement asset is regulated electronic money with a named issuer that can freeze it and is supervised for doing so.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "clear",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 10 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "A named foundation plus regulated entities in the payment flow, which makes it unusually reachable for a chain of this size.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 9,
+    "grade": "A",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "European card payments. It settles a self-custodial Visa debit programme where the token in the wallet is regulated electronic money."
+   },
+   "residual": "The regulated e-money issuer is the control, and it is one company. Concentration on a single issuer is the exposure that replaces the usual chain-level ones."
+  },
+  {
+   "id": "monad",
+   "name": "Monad",
+   "ticker": "MON",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-08-31",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger with no obfuscation in the design.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Too new for established attribution depth at the major providers. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "caution",
+     "rationale": "A May 2026 exploit of the Echo Protocol used a compromised admin key to mint unauthorised eBTC on Monad; about $816,000 of the proceeds were bridged off-chain and laundered through Tornado Cash before the protocol recovered its keys and burned the rest. It is a single incident on a young chain rather than a measured concentration, but it is a record where there was none before.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "The EVM standards exist, but there is little regulated stablecoin or permissioned-token issuance to rely on yet.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 4 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named foundation, but governance and regulatory engagement are both young.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 35,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Listing and custody decisions, ahead of deployment. It reached mainnet recently and firms are being asked whether to support it."
+   },
+   "residual": "Too new to have a track record, which is a statement about the absence of evidence, and nothing about safety."
+  },
+  {
+   "id": "berachain",
+   "name": "Berachain",
+   "ticker": "BERA",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-07-29",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Newer chain with limited attribution depth. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "No reported illicit concentration.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "EVM standards are available but there is almost no regulated token issuance to point at.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry, though only 5 assets are mapped, so coverage is narrower than on the volume rails.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "caution",
+     "rationale": "A named foundation, but young governance and a sharp fall in activity since launch.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 27,
+    "grade": "C",
+    "band": "conditional"
+   },
+   "exposure": {
+    "tier": "niche",
+    "where": "Listing decisions. It drew a large amount of capital at launch and then lost most of it, which is itself the useful fact."
+   },
+   "residual": "Incentive-driven capital arriving and leaving at speed leaves no stable baseline to monitor against, and the fall in activity has not stopped."
+  },
+  {
+   "id": "cronos",
+   "name": "Cronos",
+   "ticker": "CRO",
+   "category": "l1",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-08-18",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM ledger.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Chainalysis provides transaction monitoring and TRM publishes coverage; Elliptic's position is not public, and the Notabene registry maps only the Crypto.com network naming.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "No published chain-level illicit concentration; the chain has run since 2021 without featuring in the major crime reporting.",
+     "basis": "observed"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "EVM token standards are available and the main stablecoins here are issuer-controlled, but there is little enforcement precedent on this chain.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "The registry maps the network under Crypto.com's naming with only 2 assets, so identity tooling is narrow.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "A named operating company within a regulated exchange group, with clear jurisdiction.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 21,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Crypto.com's exchange and card customer base routes activity through it, so it appears in the retail flows a firm screens."
+   },
+   "residual": "Most flows touch one exchange group's ecosystem, so concentration risk sits with a single commercial operator rather than with the protocol."
+  },
+  {
+   "id": "robinhood",
+   "name": "Robinhood Chain",
+   "ticker": "RHC",
+   "category": "l2",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-08-18",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Transparent EVM rollup ledger.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "TRM publishes coverage; the other majors do not yet state a position, and attribution depth is early.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Mainnet opened in July 2026; nobody has measured a track record yet.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "caution",
+     "rationale": "Stock tokens are issuer-controlled instruments, which is a strong control surface, but the wider token set is young and enforcement precedent does not exist yet.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with only 3 assets mapped, so identity tooling is early.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "A listed, regulated US operator with clear jurisdiction; unusually reachable for a public chain.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "caution",
+     "rationale": "The group's crypto arm paid a $30m NYDFS penalty in 2022 for anti-money laundering and cybersecurity failures; the case is historic and remediated, and it remains the main adverse item on the operator.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 26,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Stock tokens and retail crypto activity from a listed US broker's customer base, so it reaches firms through retail payment and withdrawal flows."
+   },
+   "residual": "A young rollup whose activity has no baseline yet, so monitoring thresholds will be guesses for some time, and the sequencer is a single commercial operator."
+  }
+ ]
+}

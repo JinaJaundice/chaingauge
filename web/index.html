@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08090c" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>ChainGauge · Financial-crime safety ratings for public blockchains</title>
+    <meta
+      name="description"
+      content="An independent site that rates public blockchains for financial crime risk, so that a compliance team can tell which chain is suitable before a product team deploys."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ChainGauge" />
+    <meta property="og:title" content="ChainGauge · Financial-crime safety ratings for public blockchains" />
+    <meta
+      property="og:description"
+      content="Public blockchains rated across seven financial crime factors by a transparent, product-aware model, with the reasoning and sources published."
+    />
+    <meta property="og:url" content="https://chaingauge.app/" />
+    <meta property="og:image" content="https://chaingauge.app/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ChainGauge · Financial-crime safety ratings for public blockchains" />
+    <meta name="twitter:image" content="https://chaingauge.vercel.app/og.png" />
+    <!-- Set the theme before first paint to avoid a flash. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("cg-theme");
+          var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+    <link rel="preload" href="/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/instrument-sans-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/instrument-sans-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

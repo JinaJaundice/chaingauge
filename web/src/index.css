@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ChainGauge identity — an instrument panel that reads like a reference source.
+   Near-black canvas, a faint schematic grid, 1px hairlines, and the risk colours
+   as the only chroma. Interface and prose in a proportional sans; monospace is
+   reserved for figures, tickers, grades and dates.
+   A daylight (light) variant mirrors it. Theme is driven by a `data-theme`
+   attribute on <html>, set from localStorage or the OS preference.
+
+   Colour is expressed as CSS custom properties so both themes share one set of
+   component classes. The risk colours are variables too, so the SVG rosette and
+   gauges adapt to the theme automatically. */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #08090c;
+  --grid: rgba(255, 255, 255, 0.028);
+  --panel: #0d0f14;
+  --panel-2: #141823;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.17);
+  --ink: #e7e9ee;
+  --muted: #828b9a;
+  --faint: #59616f;
+  --accent: #22d3ee; /* cyan signal */
+  --accent-ink: #062a30;
+  --clear: #34d399; /* emerald-400 */
+  --caution: #fbbf24; /* amber-400 */
+  --elevated: #fb7185; /* rose-400 */
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f6f8;
+  --grid: rgba(15, 23, 42, 0.035);
+  --panel: #ffffff;
+  --panel-2: #f8fafc;
+  --line: rgba(15, 23, 42, 0.1);
+  --line-strong: rgba(15, 23, 42, 0.2);
+  --ink: #0f1720;
+  --muted: #55606e;
+  --faint: #8b95a3;
+  --accent: #0e7490; /* cyan-700 */
+  --accent-ink: #ecfeff;
+  --clear: #059669; /* emerald-600 */
+  --caution: #b45309; /* amber-700 */
+  --elevated: #e11d48; /* rose-600 */
+}
+
+* {
+  border-color: var(--line);
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* ---------------------------------------------------------------
+   Type.
+
+   Self-hosted, so the site makes no third-party request. It used to pull both
+   families from the Google Fonts CDN, which sends every visitor's IP to Google
+   before a single word renders; for a site read by European compliance teams
+   that is not a detail worth waving through.
+
+   Instrument Sans carries the interface and the prose. JetBrains Mono is kept,
+   and demoted: it now sets numbers, tickers, grades and dates only.
+
+   The demotion came from measuring the reference products rather than taste.
+   L2BEAT, rwa.xyz and Token Terminal all run a proportional sans at 14px for
+   the interface and reserve mono for figures. Setting everything in monospace
+   read as a terminal toy rather than a reference source, which is exactly the
+   note this release was given.
+   --------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: optional;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: optional;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: optional;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: optional;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* 14px, because all three reference products run their interface at 14 and
+     this ran at 13 with a lot of 11. */
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  background-color: var(--bg);
+  /* Faint schematic grid — the instrument-panel texture. */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 34px 34px;
+  background-position: -1px -1px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "tnum";
+}
+
+/* `.sans` is now the default, so it is a no-op kept only so the hundreds of
+   existing usages do not all have to change in one commit. Do not add new ones. */
+.sans {
+  font-family: inherit;
+}
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Schematic panel: flat surface, hairline border, no soft shadow. */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.panel-2 {
+  background: var(--panel-2);
+}
+.hairline {
+  border-color: var(--line);
+}
+.hairline-strong {
+  border-color: var(--line-strong);
+}
+
+/* Accent helpers. */
+.text-accent {
+  color: var(--accent);
+}
+.bg-accent {
+  background: var(--accent);
+}
+.text-ink {
+  color: var(--ink);
+}
+.text-muted {
+  color: var(--muted);
+}
+.text-faint {
+  color: var(--faint);
+}
+
+/* A soft blinking status dot for the "LIVE" indicator. */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulse {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 2px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* The tab strip scrolls on a narrow screen rather than pushing the header wide.
+   A visible scrollbar under six tabs in a 56px-tall header reads as a defect,
+   so it is hidden here and only here. */
+.nav-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.24s ease-out both;
+}
+
+/* Print: the chain page doubles as a due-diligence one-pager. Force the light
+   palette onto paper regardless of the on-screen theme, drop the grid texture,
+   and let long panels break across pages cleanly. */
+@media print {
+  :root,
+  :root[data-theme="dark"],
+  :root[data-theme="light"] {
+    --bg: #ffffff;
+    --grid: transparent;
+    --panel: #ffffff;
+    --panel-2: #f5f6f8;
+    --line: #d4d9e0;
+    --line-strong: #aab2bd;
+    --ink: #111827;
+    --muted: #374151;
+    --faint: #6b7280;
+    --accent: #0e7490;
+    --clear: #047857;
+    --caution: #92400e;
+    --elevated: #be123c;
+  }
+  body {
+    background: #ffffff;
+    font-size: 11px;
+  }
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  .panel,
+  .rise {
+    break-inside: avoid;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Forced colours (Windows High Contrast).
+   ---------------------------------------------------------------
+   The red team found 68 risk markers rendering in a single colour here,
+   which makes the rosette and the risk matrix unreadable: in both, colour
+   is the ONLY channel carrying the level. Everywhere else the colour sits
+   beside the word "Clear" or "Caution", so it degrades gracefully.
+
+   The system palette cannot be overridden, and it should not be, so the
+   level is re-encoded as a shape instead. Clear stays solid, caution gets
+   a ring, elevated gets a thick ring, and the SVG rosette wedges take a
+   hatch. That is a redundant channel in normal use and the only channel
+   in this one.
+   --------------------------------------------------------------- */
+@media (forced-colors: active) {
+  [data-level] {
+    forced-color-adjust: none;
+  }
+  [data-level="clear"] {
+    background: CanvasText;
+    border: 1px solid CanvasText;
+  }
+  [data-level="caution"] {
+    background: Canvas;
+    border: 2px solid CanvasText;
+  }
+  [data-level="elevated"] {
+    background: Canvas;
+    border: 4px double CanvasText;
+  }
+  /* Rosette wedges and matrix cells: a pattern, since a wedge has no border. */
+  svg [data-level="caution"] {
+    opacity: 0.55;
+  }
+  svg [data-level="elevated"] {
+    opacity: 0.2;
+  }
+}
