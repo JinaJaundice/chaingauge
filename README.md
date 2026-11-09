@@ -1,7 +1,7 @@
 <div align="center" id="hero-image">
   <picture>
     <source srcset="docs/assets/overview-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="docs/assets/overview-light.png" alt="The ChainGauge overview page, which groups 53 public blockchains by financial crime grade" width="720">
+    <img src="docs/assets/overview-light.png" alt="The ChainGauge overview page, with the spread of financial crime grades across 53 public blockchains" width="720">
   </picture>
 </div>
 
