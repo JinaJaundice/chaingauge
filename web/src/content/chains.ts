@@ -39,10 +39,11 @@ const S = {
 
   llamaChains: { name: "DefiLlama, chains by value locked (live)", url: "https://defillama.com/chains", kind: "primary" } as Source,
   rwaNetworks: { name: "rwa.xyz, tokenised assets by network (live)", url: "https://app.rwa.xyz/networks", kind: "primary" } as Source,
-  l2beatBase: { name: "L2BEAT, Base (stage and upgrade permissions)", url: "https://l2beat.com/scaling/projects/base", kind: "primary" } as Source,
-  l2beatArbitrum: { name: "L2BEAT, Arbitrum One (stage and upgrade permissions)", url: "https://l2beat.com/scaling/projects/arbitrum", kind: "primary" } as Source,
-  l2beatStages: { name: "L2BEAT, the stages framework", url: "https://l2beat.com/stages", kind: "primary" } as Source,
-  l2beat: { name: "L2BEAT, scaling summary (live)", url: "https://l2beat.com/scaling/summary", kind: "primary" } as Source,
+  l2beatBase: { name: "ETHBEAT (formerly L2BEAT), Base (stage and upgrade permissions)", url: "https://l2beat.com/scaling/projects/base", kind: "primary" } as Source,
+  l2beatArbitrum: { name: "ETHBEAT (formerly L2BEAT), Arbitrum One (stage and upgrade permissions)", url: "https://l2beat.com/scaling/projects/arbitrum", kind: "primary" } as Source,
+  l2beatStages: { name: "ETHBEAT (formerly L2BEAT), the stages framework", url: "https://l2beat.com/stages", kind: "primary" } as Source,
+  l2beat: { name: "ETHBEAT (formerly L2BEAT), scaling summary (live)", url: "https://l2beat.com/scaling/summary", kind: "primary" } as Source,
+  ethbeatRonin: { name: "ETHBEAT (formerly L2BEAT), Ronin Network", url: "https://l2beat.com/scaling/projects/ronin-network", kind: "primary" } as Source,
   buidl: { name: "BlackRock BUIDL deployed across eight chains", url: "https://www.mexc.com/crypto-pulse/article/rwa-tokenization-in-2026-113521", kind: "secondary" } as Source,
 
   // --- The chains added in the July 2026 coverage review ----------------------
@@ -51,14 +52,17 @@ const S = {
   tempoDesign: { name: "Tempo private testing with Visa, Deutsche Bank and Standard Chartered, via Yahoo Finance", url: "https://finance.yahoo.com/news/stripe-tempo-begins-private-testing-112647762.html", kind: "secondary" } as Source,
   plasmaTvl: { name: "Plasma reaches $2bn value locked after Tether integration, via KuCoin", url: "https://www.kucoin.com/blog/why-plasma-s-tvl-surged-to-2-billion-tether-integration-and-the-rise-of-the-stablecoin-native-l1", kind: "secondary" } as Source,
   hyperliquidScrutiny: { name: "CME and ICE press US regulators to scrutinise Hyperliquid (CoinDesk)", url: "https://www.coindesk.com/markets/2026/05/15/cme-ice-push-u-s-regulators-to-scrutinize-hyperliquid-over-manipulation-risks-bloomberg", kind: "secondary" } as Source,
+  hyperliquidOversight: { name: "House Committee on Oversight and Government Reform, letter to Hyperliquid Labs on prediction-market insider trading", url: "https://oversight.house.gov/wp-content/uploads/2026/09/Hyperliquid-Letter-9.29.26.pdf", kind: "primary" } as Source,
   hyperliquidUsdc: { name: "How Hyperliquid's USDC collateral layer works", url: "https://eco.com/support/en/articles/15191999-hyperliquid-usdc-how-hype-s-stablecoin-layer-works-in-2026", kind: "secondary" } as Source,
   worldChain: { name: "World Chain, the L2 with proof-of-human blockspace", url: "https://world.org/world-chain", kind: "primary" } as Source,
-  worldChainL2beat: { name: "L2BEAT, World Chain", url: "https://l2beat.com/scaling/projects/world", kind: "primary" } as Source,
-  celoL2: { name: "L2BEAT, Celo", url: "https://l2beat.com/scaling/projects/celo", kind: "primary" } as Source,
+  worldChainL2beat: { name: "ETHBEAT (formerly L2BEAT), World Chain", url: "https://l2beat.com/scaling/projects/world", kind: "primary" } as Source,
+  celoL2: { name: "ETHBEAT (formerly L2BEAT), Celo", url: "https://l2beat.com/scaling/projects/celo", kind: "primary" } as Source,
   celoStables: { name: "Celo, mobile-first L2 and stablecoin rails", url: "https://eco.com/support/en/articles/15183710-what-is-celo-mobile-first-l2-and-stablecoin-rails", kind: "secondary" } as Source,
   gnosisPay: { name: "Monerium, how Gnosis Pay settles with Visa using stablecoins", url: "https://monerium.com/case-studies/gnosispay/", kind: "primary" } as Source,
   newChains: { name: "The state of the newer chains (Berachain, Unichain, World Chain)", url: "https://stacymuur.substack.com/p/the-state-of-new-chains-berachain", kind: "secondary" } as Source,
   chainCollapse: { name: "Sonic, Unichain, Berachain and Scroll: how the challengers fell back", url: "https://www.banklesstimes.com/articles/2026/05/04/sonic-unichain-berachain-scroll-how-promising-ethereum-rivals-collapsed/", kind: "secondary" } as Source,
+  beraExploit: { name: "Berachain halts network and rolls back transactions after $128m cross-chain Balancer exploit, via The Block", url: "https://www.theblock.co/post/377257/berachain-emergency-hardfork", kind: "secondary" } as Source,
+  gnosisPayExploit: { name: "Gnosis Pay, post-mortem of the 1 June 2026 vulnerability exploit", url: "https://gnosispay.com/blog/post-mortem-gnosis-pay-vulnerability-exploit", kind: "primary" } as Source,
   secTronCharged: { name: "SEC charges Justin Sun and three companies over TRX and BTT", url: "https://www.sec.gov/newsroom/press-releases/2023-59", kind: "primary" } as Source,
   secTronResolved: { name: "SEC litigation release 26496, the resolution of SEC v. Sun", url: "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26496", kind: "primary" } as Source,
   dojBinance: { name: "United States v. Binance Holdings Limited, the Department of Justice case record", url: "https://www.justice.gov/criminal/case/united-states-v-binance-holdings-limited-dba-binancecom", kind: "primary" } as Source,
@@ -84,6 +88,9 @@ const S = {
   llamaBerachain: { name: "DefiLlama, Berachain value locked (live)", url: "https://defillama.com/chain/Berachain", kind: "primary" } as Source,
 
   arcMainnet: { name: "Circle announces Arc founding validator cohort ahead of the 16 September 2026 mainnet launch", url: "https://www.circle.com/pressroom/circle-announces-founding-validator-cohort-and-major-integrations-for-arc-ahead-of-september-16-mainnet-launch", kind: "primary" } as Source,
+  arcLaunch: { name: "Circle's Arc mainnet goes live with institutional validators producing blocks, via The Block", url: "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250", kind: "secondary" } as Source,
+  arcDocs: { name: "Arc documentation, EVM compatibility and the native USDC blocklist", url: "https://docs.arc.network/arc/concepts/evm-compatibility", kind: "primary" } as Source,
+  ellipticArc: { name: "Elliptic, blockchain analytics for Circle's Arc testnet", url: "https://www.elliptic.co/media-center/elliptic-provides-circles-arc-testnet-with-blockchain-analytics", kind: "primary" } as Source,
 
   secretDevExit: { name: "Layer 1 network dilutes supply by 75% overnight to fund survival after main developer quits, via CryptoSlate", url: "https://cryptoslate.com/layer-1-network-dilutes-supply-by-75-overnight-to-fund-survival-after-main-developer-quits/", kind: "secondary" } as Source,
   secretBinanceDelist: { name: "Binance to delist ICX, SCRT and STORJ, via Cryptonomist", url: "https://en.cryptonomist.ch/2026/08/20/binance-token-delisting-icon-secret-storj/", kind: "secondary" } as Source,
@@ -193,7 +200,7 @@ export const CHAINS: Chain[] = [
       traceability: { level: "clear", rationale: "Transparent rollup; transaction data is posted to Ethereum and fully traceable.", sources: [] },
       coverage: { level: "clear", rationale: "Covered by the major providers alongside the other large EVM L2s. Notabene's registry maps 28 Elliptic asset identifiers here.", sources: [S.notabene] },
       illicit: { level: "clear", rationale: "Lower illicit concentration than the large L1s; a newer, consumer-facing L2.", sources: [] },
-      controls: { level: "caution", rationale: "Full EVM controllable-token standards; native USDC issuance. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with Stage 0 on L2BEAT, so their availability is an operator dependency, and no property of the chain.", sources: [S.usdcFreeze, S.l2beatBase] },
+      controls: { level: "caution", rationale: "Full EVM controllable-token standards; native USDC issuance. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with Stage 0 on ETHBEAT (formerly L2BEAT), so their availability is an operator dependency, and no property of the chain.", sources: [S.usdcFreeze, S.l2beatBase] },
       travelRule: { level: "clear", rationale: "Listed in Notabene's Travel Rule registry with 74 assets mapped, so messaging tooling exists for the assets a firm is likely to meet.", sources: [S.notabene] },
       accountability: { level: "clear", rationale: "Operated by Coinbase, a regulated, publicly-listed US company; highly reachable.", sources: [] },
       adverseMedia: { level: "clear", rationale: "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.", sources: [] },
@@ -518,7 +525,7 @@ export const CHAINS: Chain[] = [
     ],
     ratings: {
       traceability: { level: "clear", rationale: "Transparent ledger with a public transaction record.", sources: [] },
-      coverage: { level: "caution", rationale: "Coverage is growing but less deep than for the large EVM chains. Notabene lists 14 assets for TON in its Travel Rule registry, but every one of their Elliptic-coverage entries repeats the dataset's generic placeholder value, so the field gives no reading on Elliptic's depth here.", sources: [S.notabene] },
+      coverage: { level: "caution", rationale: "Coverage is growing but less deep than for the large EVM chains. Of the 14 assets that Notabene lists for TON in its Travel Rule registry, 11 carry the dataset's generic placeholder in the Elliptic field and 3 leave it empty. That field gives no reading on Elliptic's depth for TON.", sources: [S.notabene] },
       illicit: { level: "elevated", rationale: "Closely tied to the Telegram-based laundering ecosystem (guarantee platforms and scam services) that grew sharply in 2025.", sources: [S.laundering] },
       controls: { level: "caution", rationale: "Jetton issuers can build in admin controls, but freeze capability is uneven and there is little enforcement precedent.", sources: [] },
       travelRule: { level: "caution", rationale: "Now listed in Notabene's Travel Rule registry, though only 14 assets are mapped, so coverage is narrower than on the volume rails.", sources: [S.notabene] },
@@ -526,7 +533,7 @@ export const CHAINS: Chain[] = [
       adverseMedia: { level: "caution", rationale: "Telegram's founder was charged in France in 2024 over complicity in illicit activity on the platform, and the network's closeness to Telegram keeps that reporting attached to it.", sources: [S.durovCharged] },
     },
     asAt: AS_AT,
-    reviewed: "2026-11-02",
+    reviewed: "2026-11-09",
   },
   {
     id: "litecoin", name: "Litecoin", ticker: "LTC", category: "l1",
@@ -1180,21 +1187,21 @@ export const CHAINS: Chain[] = [
       note: "The bridge remains the point of failure that produced the largest state-sponsored theft on record, and a bridge is a design feature here, built in from the start.",
       sources: [S.ronin],
     },
-    facts: { consensus: "Delegated proof of stake", model: "EVM sidechain", launched: "2021", steward: "Sky Mavis" },
-    summary: "A gaming-focused Ethereum sidechain, best known for the $600m Lazarus bridge hack in 2022 that exploited its small validator set. Transparent, but with a heavy illicit event history.",
-    deployment: "Traceable and EVM-controllable now, but the bridge hack showed the risk of a concentrated validator set. Weigh that history and confirm current coverage before deploying.",
-    stats: [covStat("2 of 3 majors", "caution"), privStat("None (transparent)", "clear"), ctrlStat("EVM standards", "clear"), trStat("Emerging", "caution"), { label: "Largest hack", value: "$600m Lazarus (2022)", level: "elevated", source: S.ronin }],
+    facts: { consensus: "Optimium on Ethereum (OP Stack, data on EigenDA), migrated from a sidechain in May 2026", model: "EVM L2", launched: "2021", steward: "Sky Mavis" },
+    summary: "A gaming-focused chain built by Sky Mavis, best known for the $600m Lazarus bridge hack in 2022 that exploited its earlier validator set. It migrated from an independent sidechain to an Ethereum layer 2 on the OP Stack in May 2026.",
+    deployment: "Traceable and EVM-controllable, but the layer 2 is young. ETHBEAT reports that only permissioned fraud-proof games are allowed and that the contracts are instantly upgradable. Weigh the 2022 bridge hack history too, and confirm current analytics coverage before deploying.",
+    stats: [covStat("2 of 3 majors", "caution"), privStat("None (transparent)", "clear"), ctrlStat("EVM standards, OP Stack Optimium", "caution", S.ethbeatRonin), trStat("Emerging", "caution"), { label: "Largest hack", value: "$600m Lazarus (2022)", level: "elevated", source: S.ronin }],
     ratings: {
-      traceability: { level: "clear", rationale: "Transparent EVM sidechain with public history.", sources: [] },
+      traceability: { level: "clear", rationale: "Transparent EVM rollup with public history, posting its data to EigenDA rather than Ethereum.", sources: [S.ethbeatRonin] },
       coverage: { level: "caution", rationale: "Covered, but attribution is thinner than for the largest chains. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.", sources: [S.notabene] },
       illicit: { level: "elevated", rationale: "Site of the $600m Ronin bridge hack by the DPRK Lazarus Group in 2022, one of the largest ever, with the exploiter's address OFAC-sanctioned.", sources: [S.ronin, S.sanctions] },
-      controls: { level: "clear", rationale: "Full EVM controllable-token standards.", sources: [S.usdcFreeze] },
+      controls: { level: "caution", rationale: "Full EVM controllable-token standards exist. Ronin has run as an OP Stack Optimium since May 2026. ETHBEAT reports that only permissioned fraud-proof games are allowed and that the contracts are instantly upgradable. The instant upgrade path is a dependency in addition to the token standards.", sources: [S.usdcFreeze, S.ethbeatRonin] },
       travelRule: { level: "caution", rationale: "Listed in Notabene's Travel Rule registry, though only 8 assets are mapped, so coverage is narrower than on the volume rails.", sources: [S.notabene] },
       accountability: { level: "caution", rationale: "A named operator, but the concentrated validator set was the cause of the 2022 bridge hack.", sources: [S.ronin] },
       adverseMedia: { level: "caution", rationale: "The 2022 Lazarus Group theft keeps the network in sanctions-related reporting, though the operator was the victim and the recovery involved law enforcement cooperation.", sources: [S.ronin] },
     },
     asAt: AS_AT,
-    reviewed: "2026-07-15",
+    reviewed: "2026-11-09",
   },
 
   // ---- High-risk (privacy) --------------------------------------------------
@@ -1299,12 +1306,12 @@ export const CHAINS: Chain[] = [
       coverage: { level: "caution", rationale: "Transparent Firo is traceable; shielded activity is not, and coverage is thin. No third-party registry maps this chain, so nothing here is independently checkable.", sources: [S.notabene] },
       illicit: { level: "caution", rationale: "A dedicated privacy coin, subject to the same AEC delisting and sanctions pressure.", sources: [S.aecRestriction] },
       controls: { level: "elevated", rationale: "No issuer freeze or clawback.", sources: [] },
-      travelRule: { level: "elevated", rationale: "Not listed in Notabene's Travel Rule registry, which maps 300 networks, so a sending firm may have no route to attach originator and beneficiary data for this chain.", sources: [S.notabene] },
+      travelRule: { level: "elevated", rationale: "Not listed in Notabene's Travel Rule registry, which maps 304 networks, so a sending firm may have no route to attach originator and beneficiary data for this chain.", sources: [S.notabene] },
       accountability: { level: "caution", rationale: "A named team exists, but the anonymity-enhancing design faces EU restriction from 2027.", sources: [S.aecRestriction] },
       adverseMedia: { level: "caution", rationale: "Recurs in privacy-coin delisting decisions and the reporting around them.", sources: [S.privacyCoins] },
     },
     asAt: AS_AT,
-    reviewed: "2026-07-15",
+    reviewed: "2026-11-09",
   },
   {
     id: "monero", name: "Monero", ticker: "XMR", category: "privacy",
@@ -1421,7 +1428,7 @@ export const CHAINS: Chain[] = [
     },
     facts: { consensus: "HyperBFT", model: "L1 with an EVM layer (HyperEVM)", launched: "2024", steward: "Hyperliquid Labs; no incorporated operator with a public regulatory footprint" },
     summary: "A high-volume derivatives venue that is also a chain. Every position and balance is denominated in USDC, which makes it readable and gives Circle a control surface, but there is no regulated operator and access is limited by terms of use, with no controls behind them.",
-    deployment: "The chain itself is transparent. The problem is the counterparty question: two US market infrastructures have formally asked the CFTC to scrutinise it over manipulation and sanctions evasion, and there is no licensed entity to serve or to receive an information request. Expect this one to come up in customer activity before any deployment choice.",
+    deployment: "The chain itself is transparent. The problem is the counterparty question: two US market infrastructures have formally asked the CFTC to scrutinise it over manipulation and sanctions evasion, and in September 2026 the House Oversight Committee opened its own document request over a large, precisely timed trade. There is no licensed entity to serve or to receive an information request. Expect this one to come up in customer activity before any deployment choice.",
     stats: [
       covStat("Emerging", "caution"),
       privStat("None (transparent)", "clear"),
@@ -1437,11 +1444,11 @@ export const CHAINS: Chain[] = [
       illicit: { level: "caution", rationale: "No published illicit concentration figure, but the venue has been named by CME and ICE to the CFTC as a manipulation and sanctions-evasion concern, which is a supervisory signal, short of measured exposure.", sources: [S.hyperliquidScrutiny] },
       controls: { level: "caution", rationale: "Control exists only through the collateral asset: Circle can freeze USDC. There is no native permissioning and no operator-level control a firm can rely on.", sources: [S.hyperliquidUsdc] },
       travelRule: { level: "caution", rationale: "Listed in Notabene's Travel Rule registry, though only 4 assets are mapped, so coverage is narrower than on the volume rails.", sources: [S.notabene] },
-      accountability: { level: "elevated", rationale: "No named regulated operator to serve process on or to receive an information request, and the venue is under active scrutiny from two US market infrastructures at the CFTC.", sources: [S.hyperliquidScrutiny] },
-      adverseMedia: { level: "caution", rationale: "Two US market infrastructures pressed the CFTC in 2026 to scrutinise the venue over manipulation risks, and that scrutiny remains open.", sources: [S.hyperliquidScrutiny] },
+      accountability: { level: "elevated", rationale: "No named regulated operator to serve process on or to receive an information request. The venue is under active scrutiny from two US market infrastructures at the CFTC, and in September 2026 the House Oversight Committee wrote to a named co-founder for records on a $1.1bn short position, taken on margin, opened shortly before a 2025 tariff announcement, as part of a wider prediction-market insider-trading inquiry.", sources: [S.hyperliquidScrutiny, S.hyperliquidOversight] },
+      adverseMedia: { level: "caution", rationale: "Two US market infrastructures pressed the CFTC in 2026 to scrutinise the venue over manipulation risks, and in September the House Oversight Committee opened its own document request to a named co-founder over a large, precisely timed margin position, as part of a wider insider-trading inquiry into prediction markets. Both lines of scrutiny remain open.", sources: [S.hyperliquidScrutiny, S.hyperliquidOversight] },
     },
     asAt: AS_AT,
-    reviewed: "2026-11-02",
+    reviewed: "2026-11-09",
   },
   {
     id: "unichain", name: "Unichain", ticker: "UNI", category: "l2",
@@ -1497,7 +1504,7 @@ export const CHAINS: Chain[] = [
       ctrlStat("EVM + issuer freeze on listed stablecoins", "clear"),
       trStat("Inherited from Ethereum", "clear"),
       { label: "Identity layer", value: "Proves a unique human, no identity check", level: "caution", source: S.worldChain },
-      { label: "Independent listing", value: "Tracked on L2BEAT", level: "clear", source: S.worldChainL2beat },
+      { label: "Independent listing", value: "Tracked on ETHBEAT", level: "clear", source: S.worldChainL2beat },
     ],
     ratings: {
       traceability: { level: "clear", rationale: "Transparent rollup posting data to Ethereum.", sources: [S.worldChainL2beat] },
@@ -1531,7 +1538,7 @@ export const CHAINS: Chain[] = [
       ctrlStat("Stablecoin issuer controls", "clear"),
       trStat("Inherited from Ethereum", "clear"),
       { label: "Native stablecoins", value: "cUSD, cEUR, cREAL", level: "clear", source: S.celoStables },
-      { label: "Independent listing", value: "Tracked on L2BEAT", level: "clear", source: S.celoL2 },
+      { label: "Independent listing", value: "Tracked on ETHBEAT", level: "clear", source: S.celoL2 },
     ],
     ratings: {
       traceability: { level: "clear", rationale: "Transparent Ethereum L2 since the 2025 migration.", sources: [S.celoL2] },
@@ -1553,8 +1560,8 @@ export const CHAINS: Chain[] = [
       scale: { label: "Payment programme", value: "Visa debit settled in EURe, issued by an FCA-authorised electronic money institution", level: "clear", source: S.gnosisPay },
     },
     residual: {
-      note: "The regulated e-money issuer is the control, and it is one company. Concentration on a single issuer is the exposure that replaces the usual chain-level ones.",
-      sources: [S.gnosisPay],
+      note: "The regulated e-money issuer is the control, and it is one company. Concentration on a single issuer is the exposure that replaces the usual chain-level ones. A June 2026 exploit of the card product's own smart-contract modules, separate from the issuer and the chain, is the reminder that the application layer carries its own risk.",
+      sources: [S.gnosisPay, S.gnosisPayExploit],
     },
     facts: { consensus: "Proof of stake", model: "EVM L1 with a stable-value gas asset", launched: "2018", steward: "Gnosis, with a named foundation and a European payments programme" },
     summary: "A small EVM chain that matters more than its size, because it is one of the few places where a regulated e-money token settles real card payments. EURe is issued by Monerium under e-money rules, and the card is issued through an FCA-authorised institution.",
@@ -1570,14 +1577,14 @@ export const CHAINS: Chain[] = [
     ratings: {
       traceability: { level: "clear", rationale: "Transparent EVM ledger.", sources: [] },
       coverage: { level: "caution", rationale: "A smaller chain with correspondingly thin attribution at the major providers. Notabene's registry maps 4 Elliptic asset identifiers here.", sources: [S.notabene] },
-      illicit: { level: "clear", rationale: "No material illicit concentration reported; the volume is card and payment activity.", sources: [], basis: "no-record" },
-      controls: { level: "clear", rationale: "The main settlement asset is regulated electronic money with a named issuer that can freeze it and is supervised for doing so.", sources: [S.gnosisPay] },
+      illicit: { level: "caution", rationale: "A vulnerability in the Zodiac Delay and Roles modules used by the Gnosis Pay card safes was exploited on 1 June 2026. Gnosis Pay's post-mortem reports that the attacker took about $1.5m and left about $300k inaccessible across 5,281 wallets. It states that Gnosis absorbed the losses and restored all funds to users and that the impact was isolated to the card safe modules. The clean no-record reading no longer holds because a measured event now exists.", sources: [S.gnosisPayExploit] },
+      controls: { level: "clear", rationale: "The main settlement asset is regulated electronic money with a named issuer that can freeze it and is supervised for doing so. That control held through the June 2026 card-module exploit: the issuer and the chain were unaffected, and Gnosis covered the loss from its own balance sheet rather than relying on a freeze.", sources: [S.gnosisPay, S.gnosisPayExploit] },
       travelRule: { level: "clear", rationale: "Listed in Notabene's Travel Rule registry, though only 10 assets are mapped, so coverage is narrower than on the volume rails.", sources: [S.notabene] },
       accountability: { level: "clear", rationale: "A named foundation plus regulated entities in the payment flow, which makes it unusually reachable for a chain of this size.", sources: [S.gnosisPay] },
       adverseMedia: { level: "clear", rationale: "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.", sources: [] },
     },
     asAt: AS_AT,
-    reviewed: "2026-07-29",
+    reviewed: "2026-11-09",
   },
   {
     id: "monad", name: "Monad", ticker: "MON", category: "l1",
@@ -1620,8 +1627,8 @@ export const CHAINS: Chain[] = [
       scale: { label: "Value locked", value: "About $50m, down from a $3.1bn peak in March 2026", level: "caution", source: S.llamaBerachain },
     },
     residual: {
-      note: "Incentive-driven capital arriving and leaving at speed leaves no stable baseline to monitor against, and the fall in activity has not stopped.",
-      sources: [S.chainCollapse],
+      note: "Incentive-driven capital arriving and leaving at speed leaves no stable baseline to monitor against, and the fall in activity has not stopped. The validator set has also shown it will halt the chain and roll back transactions after a theft, which recovers funds but sits outside any regulated freeze process.",
+      sources: [S.chainCollapse, S.beraExploit],
     },
     facts: { consensus: "Proof of liquidity", model: "EVM L1", launched: "2025", steward: "Berachain Foundation" },
     summary: "An EVM L1 with an incentive-led consensus design. It attracted several billion in liquidity at launch, then lost roughly two thirds of it within months, with transaction volume falling further.",
@@ -1636,14 +1643,14 @@ export const CHAINS: Chain[] = [
     ratings: {
       traceability: { level: "clear", rationale: "Transparent EVM ledger.", sources: [] },
       coverage: { level: "caution", rationale: "Newer chain with limited attribution depth. Notabene's registry maps no Elliptic asset identifiers for it, which is consistent with thinner attribution.", sources: [S.notabene] },
-      illicit: { level: "clear", rationale: "No reported illicit concentration.", sources: [], basis: "no-record" },
-      controls: { level: "caution", rationale: "EVM standards are available but there is almost no regulated token issuance to point at.", sources: [] },
+      illicit: { level: "caution", rationale: "In November 2025 the Balancer V2 exploit reached Berachain's BEX exchange and put about $12m of user deposits at risk, mainly in the Ethena/Honey tripool. The Block reports that the exploit drained more than $128m across chains. The sum is small next to the volumes the chain carried at the time. However, the clean no-record reading no longer holds because a measured event now exists.", sources: [S.beraExploit] },
+      controls: { level: "caution", rationale: "EVM standards are available but there is almost no regulated token issuance to point at. After the November 2025 exploit, validators coordinated a chain halt and rolled back the affected transactions to recover stolen funds, which shows an ability to intervene but not a regulated freeze mechanism with due process behind it.", sources: [S.beraExploit] },
       travelRule: { level: "caution", rationale: "Listed in Notabene's Travel Rule registry, though only 5 assets are mapped, so coverage is narrower than on the volume rails.", sources: [S.notabene] },
-      accountability: { level: "caution", rationale: "A named foundation, but young governance and a sharp fall in activity since launch.", sources: [S.chainCollapse] },
+      accountability: { level: "caution", rationale: "A named foundation, but young governance and a sharp fall in activity since launch. A Berachain executive said that the halt and rollback which its validators coordinated after the November 2025 exploit 'could be seen as a contentious decision'. A validator intervention of this kind is a governance question for a chain this young.", sources: [S.chainCollapse, S.beraExploit] },
       adverseMedia: { level: "clear", rationale: "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.", sources: [] },
     },
     asAt: AS_AT,
-    reviewed: "2026-07-29",
+    reviewed: "2026-11-09",
   },
 
   // ---- Added 18 August 2026 --------------------------------------------------
@@ -1711,6 +1718,44 @@ export const CHAINS: Chain[] = [
     asAt: AS_AT,
     reviewed: "2026-08-18",
   },
+
+  // ---- Added 9 November 2026 --------------------------------------------------
+  // Arc was tracked in NOT_RATED from the review that found it at private
+  // mainnet; its public mainnet opened on 16 September 2026, so it now has
+  // observable behaviour to rate.
+  {
+    id: "arc", name: "Arc", ticker: "ARC", category: "payment",
+    exposure: {
+      tier: "emerging",
+      where: "Institutional stablecoin settlement and tokenised real-world assets; a bank or asset manager is more likely to meet it through a named validator relationship than through retail flow.",
+      scale: { label: "Stablecoin supply", value: "About $1.3bn in its first two months", level: "caution", source: S.llamaStables },
+    },
+    residual: {
+      note: "Consensus sits with a short list of named institutions rather than an open validator set, so the exposure that remains is concentration in who can propose and finalise a block rather than anonymity.",
+      sources: [S.arcMainnet],
+    },
+    facts: { consensus: "Permissioned validator set", model: "EVM L1", launched: "16 September 2026 (public mainnet)", steward: "Circle, a US-listed, regulated stablecoin issuer" },
+    summary: "Circle's own layer 1, built for stablecoin settlement with gas paid in USDC and a founding validator set that includes BlackRock, DTCC, Visa, Mastercard and Standard Chartered. Public mainnet opened on 16 September 2026, after this site held it back as announced-only.",
+    deployment: "The validator set is the control: a short list of named, regulated institutions propose and finalise blocks, and Circle enforces its USDC blocklist at the protocol level rather than only in the token contract. The trade-off is maturity: the chain is two months into public mainnet, so analytics attribution and Travel Rule tooling are still early. Confirm your provider covers it before relying on screening.",
+    stats: [
+      covStat("Elliptic confirmed; others unstated", "caution"),
+      privStat("None (transparent)", "clear"),
+      ctrlStat("Native USDC blocklist, enforced at runtime", "clear", S.arcDocs),
+      trStat("Early (3 registry assets)", "caution"),
+      { label: "Founding validators", value: "BlackRock, DTCC, Visa, Mastercard, Standard Chartered and 6 more", level: "clear", source: S.arcMainnet },
+    ],
+    ratings: {
+      traceability: { level: "clear", rationale: "Arc is a transparent EVM ledger whose documentation lists indexers and block explorers for its public block data.", sources: [S.arcDocs] },
+      coverage: { level: "caution", rationale: "Elliptic confirmed analytics coverage during Arc's testnet. Chainalysis and TRM have not stated a public position yet, and the chain is two months into public mainnet.", sources: [S.ellipticArc] },
+      illicit: { level: "clear", rationale: "Public mainnet opened on 16 September 2026; nobody has measured a track record yet.", sources: [], basis: "no-record" },
+      controls: { level: "clear", rationale: "Arc's documentation states that the USDC blocklist is enforced at runtime and that a value transfer to or from a blocklisted address reverts.", sources: [S.arcDocs] },
+      travelRule: { level: "caution", rationale: "Listed in Notabene's Travel Rule registry with 3 assets mapped, so identity tooling is early.", sources: [S.notabene] },
+      accountability: { level: "clear", rationale: "Circle is a US-listed, regulated stablecoin issuer, and consensus is held by named institutions including BlackRock, DTCC, Visa, Mastercard and Standard Chartered, an unusually reachable validator set for a public chain.", sources: [S.arcMainnet, S.arcLaunch] },
+      adverseMedia: { level: "clear", rationale: "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.", sources: [] },
+    },
+    asAt: AS_AT,
+    reviewed: "2026-11-09",
+  },
 ];
 
 /**
@@ -1720,12 +1765,6 @@ export const CHAINS: Chain[] = [
  * model whose assumptions do not hold.
  */
 export const NOT_RATED: { name: string; reason: string; sources: Source[] }[] = [
-  {
-    name: "Arc",
-    reason:
-      "Circle's payment chain had reached private mainnet by the review date, with public mainnet set for 16 September 2026 and a founding validator cohort that includes BlackRock, Visa, Mastercard, ICE and DTCC. Nothing is rated before public mainnet, because a rating needs observable behaviour, and a specification supplies none. Arc is tracked for rating once its public network is live.",
-    sources: [S.arcMainnet],
-  },
   {
     name: "Stable, Codex and other announced stablecoin chains",
     reason:

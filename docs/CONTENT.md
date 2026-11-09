@@ -21,7 +21,7 @@ Stat { label, value, level?, source? }  // a fincrime data point on the readout
 Source { name, url?, kind? }            // kind: primary | secondary
 ```
 
-The store holds **53 chains**. `Stat`s mix hard sourced figures (money
+The store holds **54 chains**. `Stat`s mix hard sourced figures (money
 stolen, frozen value, blacklisted addresses) with structured facts that also feed
 the ratings (analytics coverage, privacy tech, native controls, Travel Rule);
 `covStat` / `privStat` / `ctrlStat` / `trStat` builders at the top of `chains.ts`

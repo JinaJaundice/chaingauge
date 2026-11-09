@@ -39,6 +39,62 @@ export const ACTION_LABEL: Record<ActionKind, string> = {
 
 export const CHANGELOG: ChangeEntry[] = [
   {
+    date: "2026-11-09",
+    kind: "coverage",
+    title: "Arc added: Circle's public mainnet opened in September, and this site had it as announced-only",
+    detail:
+      "Arc was tracked in NOT_RATED from the review that found it at private mainnet, with public mainnet set for 16 September 2026. That date has passed, Arc has been live for about two months, and it carries roughly $1.3bn in stablecoin supply and a founding validator cohort of named institutions including BlackRock, DTCC, Visa, Mastercard and Standard Chartered, so it now has observable behaviour to rate. Arc is added as a full entry with grade B (Established) on the balanced profile. The grade reflects mainly thin analytics coverage and early Travel Rule tooling. Arc carries no illicit or accountability finding. Arc's documentation states that the USDC blocklist is enforced at runtime and that a value transfer to or from a blocklisted address reverts.",
+    chains: ["arc"],
+  },
+  {
+    date: "2026-11-09",
+    kind: "correction",
+    title: "Hyperliquid's adverse media and accountability rationales were missing a September 2026 congressional inquiry",
+    detail:
+      "The House Oversight Committee wrote to Hyperliquid Labs co-founder Jeff Yan on 29 September 2026, as part of a wider prediction-market insider-trading inquiry that also reached Kalshi and Polymarket. The letter, read directly, asks for KYC, surveillance and compliance records tied to a $1.1bn short position, taken on margin, opened about 30 hours before an October 2025 tariff announcement and closed for more than $150m in profit, with a reply due 13 October 2026. This is a separate, additional line of scrutiny alongside the CME and ICE complaint to the CFTC already cited. Both the accountability and adverse media rationales are updated to name it; neither level moves, since both were already at the top of the scale (elevated and caution) before this check.",
+    chains: ["hyperliquid"],
+  },
+  {
+    date: "2026-11-09",
+    kind: "rating",
+    title: "Gnosis's no-record illicit rating no longer holds; a June 2026 Gnosis Pay exploit was missing",
+    detail:
+      "A vulnerability in the Zodiac Delay and Roles modules used by the Gnosis Pay card safes was exploited on 1 June 2026. Gnosis Pay's post-mortem reports that the attacker took about $1.5m and left about $300k inaccessible across 5,281 wallets. It states that Gnosis absorbed the losses and restored all funds to users and that the impact was isolated to the card safe modules. The controls rating is unchanged because the freeze capability of the e-money issuer was not in question. The illicit rating moves from clear (no-record) to caution because a measured event now exists.",
+    chains: ["gnosis"],
+  },
+  {
+    date: "2026-11-09",
+    kind: "rating",
+    title: "Berachain's no-record illicit rating no longer holds; a November 2025 exploit and rollback were missing",
+    detail:
+      "A check of each clear, no-record rating against this week's news found one that this site had missed. On 3 November 2025 the Balancer V2 exploit reached Berachain's BEX exchange and put about $12m of user deposits at risk. Berachain's validators halted the chain and rolled back the affected transactions to recover user funds. The Block reports that the exploit drained more than $128m across chains. The illicit rating moves from clear (no-record) to caution because a measured event now exists, although the sum is small against the chain's volumes at the time. The controls rationale now records that the rollback recovered funds without a regulated freeze process. The accountability rationale quotes a Berachain executive who said that the halt and rollback 'could be seen as a contentious decision'. Both levels were already at caution before this check and do not move.",
+    chains: ["berachain"],
+  },
+  {
+    date: "2026-11-09",
+    kind: "rating",
+    title: "Ronin's May 2026 move to an OP Stack rollup was not reflected in its facts or its controls rating",
+    detail:
+      "Ronin's facts still read 'Delegated proof of stake' and 'EVM sidechain'. ETHBEAT, formerly L2BEAT, records that the chain moved from an independent sidechain to an OP Stack Ethereum layer 2 in May 2026. ETHBEAT classes Ronin as an Optimium that posts its data to EigenDA. It reports that only permissioned fraud-proof games are allowed and that the contracts are instantly upgradable. Ronin's facts now describe the migration. The controls rating moves from clear to caution to match. No other factor changed. The 2022 bridge hack remains the basis for the illicit, accountability and adverse media ratings.",
+    chains: ["ronin"],
+  },
+  {
+    date: "2026-11-09",
+    kind: "correction",
+    title: "L2BEAT has rebranded to ETHBEAT; thirteen citations renamed",
+    detail:
+      "L2BEAT's domain now redirects to ethbeat.org and its own site says the rebrand covers the same organisation and the same Stage framework ('formerly L2BEAT'). The URLs this site cites still resolve through the redirect, so nothing was broken, but the citation names on Base, Arbitrum One, OP Mainnet, Linea, zkSync Era, Starknet, Scroll, Blast, Mantle, Unichain, World Chain, Celo and Ronin are renamed to 'ETHBEAT (formerly L2BEAT)' so a reader checking the name against the live site finds a match. No rating or fact changed.",
+    chains: ["base", "arbitrum", "optimism", "linea", "zksync", "starknet", "scroll", "blast", "mantle", "unichain", "worldchain", "celo", "ronin"],
+  },
+  {
+    date: "2026-11-09",
+    kind: "correction",
+    title: "The Notabene registry grew to 304 networks and 3,629 assets, and the TON coverage figures are corrected",
+    detail:
+      "The registry's live totals were checked again: 304 networks and 3,629 assets, up from 303 and 3,623 a week earlier. TON's mapped assets held at 14. Of these, 11 carry the placeholder value in the elliptic_blockchain field and 3 leave it empty. The coverage rationale for TON is corrected to these figures from its earlier statement that every row carried the placeholder. The Travel Rule rationale for TON did not change in substance. Firo still has no native network entry; its only match is the Binance-Peg wrapped version listed under BNB Chain. Firo's own Travel Rule rationale cited the registry's network count directly and read '300 networks', already a week stale; it is corrected to 304. The Chainalysis and Elliptic field fill rates (98% and 74%) and the 99% placeholder share within the filled Elliptic field were re-measured and are unchanged. No rating level moved.",
+    chains: ["ton", "firo"],
+  },
+  {
     date: "2026-11-02",
     kind: "correction",
     title: "The Elliptic field behind every 'N Elliptic asset identifiers' figure turns out to be mostly a placeholder",

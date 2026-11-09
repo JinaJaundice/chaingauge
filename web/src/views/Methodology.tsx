@@ -193,7 +193,7 @@ export function Methodology() {
           <a href="https://api.notabene.id/v1/assets/assets" target="_blank" rel="noreferrer noopener" className="text-accent hover:underline">
             Notabene registry
           </a>
-          , a live Travel Rule map of 303 networks and more than 3,600 assets that also carries each
+          , a live Travel Rule map of 304 networks and more than 3,600 assets that also carries each
           asset's identifier in other providers' namespaces. Both the analytics-coverage and Travel
           Rule ratings are now sourced from it. TON's mapped assets moved from 13 to 14 since our
           last check. Firo, the other chain rated here, still does not appear in it at all; its only

@@ -202,7 +202,7 @@
     },
     "controls": {
      "level": "caution",
-     "rationale": "Full EVM controllable-token standards; native USDC issuance. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with Stage 0 on L2BEAT, so their availability is an operator dependency, and no property of the chain.",
+     "rationale": "Full EVM controllable-token standards; native USDC issuance. The controls themselves are sound; what qualifies this is that they run on rollup contracts the operator can still change, with Stage 0 on ETHBEAT (formerly L2BEAT), so their availability is an operator dependency, and no property of the chain.",
      "basis": "observed"
     },
     "travelRule": {
@@ -733,7 +733,7 @@
    "ticker": "TON",
    "category": "l1",
    "asAt": "2026-08-18",
-   "reviewed": "2026-11-02",
+   "reviewed": "2026-11-09",
    "factors": {
     "traceability": {
      "level": "clear",
@@ -742,7 +742,7 @@
     },
     "coverage": {
      "level": "caution",
-     "rationale": "Coverage is growing but less deep than for the large EVM chains. Notabene lists 14 assets for TON in its Travel Rule registry, but every one of their Elliptic-coverage entries repeats the dataset's generic placeholder value, so the field gives no reading on Elliptic's depth here.",
+     "rationale": "Coverage is growing but less deep than for the large EVM chains. Of the 14 assets that Notabene lists for TON in its Travel Rule registry, 11 carry the dataset's generic placeholder in the Elliptic field and 3 leave it empty. That field gives no reading on Elliptic's depth for TON.",
      "basis": "observed"
     },
     "illicit": {
@@ -2053,11 +2053,11 @@
    "ticker": "RON",
    "category": "l2",
    "asAt": "2026-08-18",
-   "reviewed": "2026-07-15",
+   "reviewed": "2026-11-09",
    "factors": {
     "traceability": {
      "level": "clear",
-     "rationale": "Transparent EVM sidechain with public history.",
+     "rationale": "Transparent EVM rollup with public history, posting its data to EigenDA rather than Ethereum.",
      "basis": "observed"
     },
     "coverage": {
@@ -2071,8 +2071,8 @@
      "basis": "observed"
     },
     "controls": {
-     "level": "clear",
-     "rationale": "Full EVM controllable-token standards.",
+     "level": "caution",
+     "rationale": "Full EVM controllable-token standards exist. Ronin has run as an OP Stack Optimium since May 2026. ETHBEAT reports that only permissioned fraud-proof games are allowed and that the contracts are instantly upgradable. The instant upgrade path is a dependency in addition to the token standards.",
      "basis": "observed"
     },
     "travelRule": {
@@ -2092,8 +2092,8 @@
     }
    },
    "balanced": {
-    "score": 41,
-    "grade": "C",
+    "score": 48,
+    "grade": "D",
     "band": "conditional"
    },
    "exposure": {
@@ -2273,7 +2273,7 @@
    "ticker": "FIRO",
    "category": "privacy",
    "asAt": "2026-08-18",
-   "reviewed": "2026-07-15",
+   "reviewed": "2026-11-09",
    "factors": {
     "traceability": {
      "level": "elevated",
@@ -2297,7 +2297,7 @@
     },
     "travelRule": {
      "level": "elevated",
-     "rationale": "Not listed in Notabene's Travel Rule registry, which maps 300 networks, so a sending firm may have no route to attach originator and beneficiary data for this chain.",
+     "rationale": "Not listed in Notabene's Travel Rule registry, which maps 304 networks, so a sending firm may have no route to attach originator and beneficiary data for this chain.",
      "basis": "observed"
     },
     "accountability": {
@@ -2493,7 +2493,7 @@
    "ticker": "HYPE",
    "category": "l1",
    "asAt": "2026-08-18",
-   "reviewed": "2026-11-02",
+   "reviewed": "2026-11-09",
    "factors": {
     "traceability": {
      "level": "clear",
@@ -2522,12 +2522,12 @@
     },
     "accountability": {
      "level": "elevated",
-     "rationale": "No named regulated operator to serve process on or to receive an information request, and the venue is under active scrutiny from two US market infrastructures at the CFTC.",
+     "rationale": "No named regulated operator to serve process on or to receive an information request. The venue is under active scrutiny from two US market infrastructures at the CFTC, and in September 2026 the House Oversight Committee wrote to a named co-founder for records on a $1.1bn short position, taken on margin, opened shortly before a 2025 tariff announcement, as part of a wider prediction-market insider-trading inquiry.",
      "basis": "observed"
     },
     "adverseMedia": {
      "level": "caution",
-     "rationale": "Two US market infrastructures pressed the CFTC in 2026 to scrutinise the venue over manipulation risks, and that scrutiny remains open.",
+     "rationale": "Two US market infrastructures pressed the CFTC in 2026 to scrutinise the venue over manipulation risks, and in September the House Oversight Committee opened its own document request to a named co-founder over a large, precisely timed margin position, as part of a wider insider-trading inquiry into prediction markets. Both lines of scrutiny remain open.",
      "basis": "observed"
     }
    },
@@ -2713,7 +2713,7 @@
    "ticker": "GNO",
    "category": "payment",
    "asAt": "2026-08-18",
-   "reviewed": "2026-07-29",
+   "reviewed": "2026-11-09",
    "factors": {
     "traceability": {
      "level": "clear",
@@ -2726,13 +2726,13 @@
      "basis": "observed"
     },
     "illicit": {
-     "level": "clear",
-     "rationale": "No material illicit concentration reported; the volume is card and payment activity.",
-     "basis": "no-record"
+     "level": "caution",
+     "rationale": "A vulnerability in the Zodiac Delay and Roles modules used by the Gnosis Pay card safes was exploited on 1 June 2026. Gnosis Pay's post-mortem reports that the attacker took about $1.5m and left about $300k inaccessible across 5,281 wallets. It states that Gnosis absorbed the losses and restored all funds to users and that the impact was isolated to the card safe modules. The clean no-record reading no longer holds because a measured event now exists.",
+     "basis": "observed"
     },
     "controls": {
      "level": "clear",
-     "rationale": "The main settlement asset is regulated electronic money with a named issuer that can freeze it and is supervised for doing so.",
+     "rationale": "The main settlement asset is regulated electronic money with a named issuer that can freeze it and is supervised for doing so. That control held through the June 2026 card-module exploit: the issuer and the chain were unaffected, and Gnosis covered the loss from its own balance sheet rather than relying on a freeze.",
      "basis": "observed"
     },
     "travelRule": {
@@ -2752,15 +2752,15 @@
     }
    },
    "balanced": {
-    "score": 9,
-    "grade": "A",
+    "score": 17,
+    "grade": "B",
     "band": "established"
    },
    "exposure": {
     "tier": "emerging",
     "where": "European card payments. It settles a self-custodial Visa debit programme where the token in the wallet is regulated electronic money."
    },
-   "residual": "The regulated e-money issuer is the control, and it is one company. Concentration on a single issuer is the exposure that replaces the usual chain-level ones."
+   "residual": "The regulated e-money issuer is the control, and it is one company. Concentration on a single issuer is the exposure that replaces the usual chain-level ones. A June 2026 exploit of the card product's own smart-contract modules, separate from the issuer and the chain, is the reminder that the application layer carries its own risk."
   },
   {
    "id": "monad",
@@ -2823,7 +2823,7 @@
    "ticker": "BERA",
    "category": "l1",
    "asAt": "2026-08-18",
-   "reviewed": "2026-07-29",
+   "reviewed": "2026-11-09",
    "factors": {
     "traceability": {
      "level": "clear",
@@ -2836,13 +2836,13 @@
      "basis": "observed"
     },
     "illicit": {
-     "level": "clear",
-     "rationale": "No reported illicit concentration.",
-     "basis": "no-record"
+     "level": "caution",
+     "rationale": "In November 2025 the Balancer V2 exploit reached Berachain's BEX exchange and put about $12m of user deposits at risk, mainly in the Ethena/Honey tripool. The Block reports that the exploit drained more than $128m across chains. The sum is small next to the volumes the chain carried at the time. However, the clean no-record reading no longer holds because a measured event now exists.",
+     "basis": "observed"
     },
     "controls": {
      "level": "caution",
-     "rationale": "EVM standards are available but there is almost no regulated token issuance to point at.",
+     "rationale": "EVM standards are available but there is almost no regulated token issuance to point at. After the November 2025 exploit, validators coordinated a chain halt and rolled back the affected transactions to recover stolen funds, which shows an ability to intervene but not a regulated freeze mechanism with due process behind it.",
      "basis": "observed"
     },
     "travelRule": {
@@ -2852,7 +2852,7 @@
     },
     "accountability": {
      "level": "caution",
-     "rationale": "A named foundation, but young governance and a sharp fall in activity since launch.",
+     "rationale": "A named foundation, but young governance and a sharp fall in activity since launch. A Berachain executive said that the halt and rollback which its validators coordinated after the November 2025 exploit 'could be seen as a contentious decision'. A validator intervention of this kind is a governance question for a chain this young.",
      "basis": "observed"
     },
     "adverseMedia": {
@@ -2862,7 +2862,7 @@
     }
    },
    "balanced": {
-    "score": 27,
+    "score": 35,
     "grade": "C",
     "band": "conditional"
    },
@@ -2870,7 +2870,7 @@
     "tier": "niche",
     "where": "Listing decisions. It drew a large amount of capital at launch and then lost most of it, which is itself the useful fact."
    },
-   "residual": "Incentive-driven capital arriving and leaving at speed leaves no stable baseline to monitor against, and the fall in activity has not stopped."
+   "residual": "Incentive-driven capital arriving and leaving at speed leaves no stable baseline to monitor against, and the fall in activity has not stopped. The validator set has also shown it will halt the chain and roll back transactions after a theft, which recovers funds but sits outside any regulated freeze process."
   },
   {
    "id": "cronos",
@@ -2981,6 +2981,61 @@
     "where": "Stock tokens and retail crypto activity from a listed US broker's customer base, so it reaches firms through retail payment and withdrawal flows."
    },
    "residual": "A young rollup whose activity has no baseline yet, so monitoring thresholds will be guesses for some time, and the sequencer is a single commercial operator."
+  },
+  {
+   "id": "arc",
+   "name": "Arc",
+   "ticker": "ARC",
+   "category": "payment",
+   "asAt": "2026-08-18",
+   "reviewed": "2026-11-09",
+   "factors": {
+    "traceability": {
+     "level": "clear",
+     "rationale": "Arc is a transparent EVM ledger whose documentation lists indexers and block explorers for its public block data.",
+     "basis": "observed"
+    },
+    "coverage": {
+     "level": "caution",
+     "rationale": "Elliptic confirmed analytics coverage during Arc's testnet. Chainalysis and TRM have not stated a public position yet, and the chain is two months into public mainnet.",
+     "basis": "observed"
+    },
+    "illicit": {
+     "level": "clear",
+     "rationale": "Public mainnet opened on 16 September 2026; nobody has measured a track record yet.",
+     "basis": "no-record"
+    },
+    "controls": {
+     "level": "clear",
+     "rationale": "Arc's documentation states that the USDC blocklist is enforced at runtime and that a value transfer to or from a blocklisted address reverts.",
+     "basis": "observed"
+    },
+    "travelRule": {
+     "level": "caution",
+     "rationale": "Listed in Notabene's Travel Rule registry with 3 assets mapped, so identity tooling is early.",
+     "basis": "observed"
+    },
+    "accountability": {
+     "level": "clear",
+     "rationale": "Circle is a US-listed, regulated stablecoin issuer, and consensus is held by named institutions including BlackRock, DTCC, Visa, Mastercard and Standard Chartered, an unusually reachable validator set for a public chain.",
+     "basis": "observed"
+    },
+    "adverseMedia": {
+     "level": "clear",
+     "rationale": "No sustained adverse reporting about the network or the organisations behind it; coverage is product and market news.",
+     "basis": "observed"
+    }
+   },
+   "balanced": {
+    "score": 15,
+    "grade": "B",
+    "band": "established"
+   },
+   "exposure": {
+    "tier": "emerging",
+    "where": "Institutional stablecoin settlement and tokenised real-world assets; a bank or asset manager is more likely to meet it through a named validator relationship than through retail flow."
+   },
+   "residual": "Consensus sits with a short list of named institutions rather than an open validator set, so the exposure that remains is concentration in who can propose and finalise a block rather than anonymity."
   }
  ]
 }

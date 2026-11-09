@@ -1,13 +1,13 @@
 <div align="center" id="hero-image">
   <picture>
     <source srcset="docs/assets/overview-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="docs/assets/overview-light.png" alt="The overview page of ChainGauge with the spread of financial crime grades across 53 public blockchains" width="720">
+    <img src="docs/assets/overview-light.png" alt="The overview page of ChainGauge with the spread of financial crime grades across 54 public blockchains" width="720">
   </picture>
 </div>
 
 <h1 align="center">ChainGauge</h1>
 
-<p align="center">Financial crime ratings of 53 public blockchains for compliance teams.</p>
+<p align="center">Financial crime ratings of 54 public blockchains for compliance teams.</p>
 
 <p align="center">
   <a href="https://chaingauge.app">Live site</a> |
@@ -16,7 +16,7 @@
   <a href="LICENSE">Licence</a>
 </p>
 
-ChainGauge rates 53 public blockchains on 7 financial crime factors for compliance teams that assess a chain before a product team deploys on it. Each rating sets out its reasoning and cites the sources it relies on.
+ChainGauge rates 54 public blockchains on 7 financial crime factors for compliance teams that assess a chain before a product team deploys on it. Each rating sets out its reasoning and cites the sources it relies on.
 
 ChainGauge is a personal project of Sooraj Muhammed, a consultant in financial crime and digital assets and formerly a senior policy adviser on cryptoassets at the Financial Conduct Authority. The project has no employer involvement and no affiliation with any chain, analytics provider or vendor. No one pays to be listed or rated.
 
@@ -66,7 +66,7 @@ Choose 2 to 4 chains on the compare page to see their factors, grades and source
   <img alt="The compare page with Bitcoin, Tron and Monero side by side" src="docs/assets/compare.png" width="720">
 </p>
 
-The ratings page groups all 53 chains by grade for the profile you choose. Each chain opens its own page from there.
+The ratings page groups all 54 chains by grade for the profile you choose. Each chain opens its own page from there.
 
 <p align="center">
   <img alt="The ratings page with every chain grouped by grade from A to E" src="docs/assets/ratings.png" width="720">
