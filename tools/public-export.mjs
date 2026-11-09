@@ -8,9 +8,11 @@
 // Usage: node tools/public-export.mjs <target folder>
 //
 // Every file is read from HEAD, so uncommitted work never leaves this repository. The script leaves out
-// docs/designs/, removes the CLAUDE.md sections that point at the maintainer's own set-up, and checks the
-// copy for secrets, e-mail addresses and user folder paths. It never runs git in the target. Review the
-// diff there, then commit and push it yourself (docs/RUNBOOK.md, "Public copy").
+// docs/designs/ and .github/workflows/, removes the CLAUDE.md sections that point at the maintainer's own set-up,
+// and checks the copy for secrets, e-mail addresses and user folder paths. It prints each finding as the file,
+// the line number and the rule, and never the text of the line. It never runs git in the target. After each
+// push to main the workflow .github/workflows/public-copy.yml commits and pushes the copy. On the manual
+// route, review the diff there and commit and push it yourself (docs/RUNBOOK.md, "Public copy").
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve, sep } from "node:path";
@@ -26,7 +28,7 @@ if (!existsSync(join(target, ".git"))) fail(`${target} is not a git working tree
 
 const git = (...args) => execFileSync("git", args, { cwd: REPO, maxBuffer: 256 << 20 });
 const head = git("rev-parse", "--short", "HEAD").toString().trim();
-const PRIVATE_PATHS = [/^docs\/designs\//];
+const PRIVATE_PATHS = [/^docs\/designs\//, /^\.github\/workflows\//];
 const PRIVATE_SECTIONS = ["## Machine-local memory", "## House style"];
 const BINARY = /\.(png|jpe?g|gif|ico|woff2?|pdf)$/i;
 // Test files hold synthetic addresses, such as the one in submission.test.ts, so the e-mail rule skips them.
@@ -70,7 +72,7 @@ for (const file of files) {
         if (name === "e-mail address" && TEST_FILE.test(file)) continue;
         if (rx.test(line)) {
           hits += 1;
-          console.error(`  ${file}:${i + 1} ${name}: ${line.trim().slice(0, 120)}`);
+          console.error(`  ${file}:${i + 1} ${name}`);
         }
       }
     });

@@ -129,5 +129,7 @@ look for the words you changed. Commit **and** push to `main`; Vercel builds `we
 
 **Two repositories (9 November 2026).** This working repository is `JinaJaundice/chaingauge-private`, and Vercel,
 the submission queue and both weekly routines use it. The public repository `JinaJaundice/chaingauge` is a copy that
-`tools/public-export.mjs` writes, as `docs/RUNBOOK.md` ("Public copy") describes. Never push this history to it and
-never add it as a remote here.
+`tools/public-export.mjs` writes, as `docs/RUNBOOK.md` ("Public copy") describes. After each push to `main` the
+workflow `.github/workflows/public-copy.yml` of this working repository refreshes that copy. `docs/RUNBOOK.md`
+("Public copy") gives its key, the steps after a failure and the manual fallback. Never push this history to the
+public repository and never add it as a remote here.

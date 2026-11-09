@@ -7,7 +7,7 @@ This directory holds three command line scripts for the maintainer of ChainGauge
 ## Interface
 
 - `inbox.mjs` lists open issues labelled `submission` in the feedback repository. `node tools/inbox.mjs` lists them, `--write` writes each to `inbox/<n>.md` and `--id <n>` limits the run to one issue.
-- `public-export.mjs <target folder>` copies the files at `HEAD` into the working tree of the public repository, leaves out `docs/designs/` and the private sections of `CLAUDE.md`, and fails if the copy holds a secret, an e-mail address, a user folder path or a pointer to the maintainer's own set-up. It never runs git in the target. `docs/RUNBOOK.md` gives the steps.
+- `public-export.mjs <target folder>` copies the files at `HEAD` into the working tree of the public repository, leaves out `docs/designs/`, `.github/workflows/` and the private sections of `CLAUDE.md`, and fails if the copy holds a secret, an e-mail address, a user folder path or a pointer to the maintainer's own set-up. It prints each finding as the file, the line number and the rule but not the text of the line. It never runs git in the target. `docs/RUNBOOK.md` gives the steps.
 - `gen-icons.mjs` reads `@web3icons/core`, converts the glyphs named in its `MAP` to `currentColor` and writes `src/content/chainIcons.ts`. It is wired to `npm run gen:icons` in `web/`, which is expected to fail until the require path is corrected (see Invariants).
 
 ## Invariants
@@ -27,5 +27,6 @@ This directory holds three command line scripts for the maintainer of ChainGauge
 
 ## Verification
 
-- No automated test or gate covers this directory. [To confirm: a command for these scripts, because `web/package.json` has no script for `inbox.mjs` and the `gates` script does not run `gen:icons`.]
+- No automated test or gate covers `inbox.mjs` or `gen-icons.mjs`. [To confirm: a command for these scripts, because `web/package.json` has no script for `inbox.mjs` and the `gates` script does not run `gen:icons`.]
+- The workflow `.github/workflows/public-copy.yml` of the working repository runs `public-export.mjs` on each pull request to `main` and after each push to `main`, as `docs/RUNBOOK.md` ("Public copy") describes.
 - Run `node tools/inbox.mjs` from the repository root to check access to the queue.
